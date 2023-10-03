@@ -1,0 +1,23 @@
+[-- Refresh Created At: 03/10/2023 - 23:42:25 --]
+Bienvenido al archivo de Log Personajes
+---------------------------------------
+[-- Characters Log Created At: 03/10/2023 - 23:42:54 --]
+Momia con los atributos: 
+- Vida    > 3 pt
+- Ataque  > 4 pt
+- Defensa > 9 pt
+Barbaro con los atributos 
+- Vida    > 12 pt
+- Ataque  > 4 pt
+- Defensa > 1 pt
+--------------------------------------------------------
+[-- Characters Log Created At: 03/10/2023 - 23:46:02 --]
+RosaMelano con los atributos: 
+- Vida    > 15 pt
+- Ataque  > 7 pt
+- Defensa > 8 pt
+Heyne con los atributos 
+- Vida    > 9 pt
+- Ataque  > 7 pt
+- Defensa > 4 pt
+--------------------------------------------------------
