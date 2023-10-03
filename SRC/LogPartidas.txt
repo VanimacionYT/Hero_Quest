@@ -1,0 +1,3 @@
+[-- Refresh Created At: 03/10/2023 - 23:42:25 --]
+Bienvenido al archivo de Log Partidas
+-------------------------------------
