@@ -6,6 +6,10 @@ Este juego no es mas que un mero proyecto académico.
 
 En este documento de texto "Changelogs.txt" redactaré los cambios que se reporten en el juego.
 
+__[Changelog 2.5.2]__ 05/10/2023
+- Se añaden las siguientes funciones:
+    - Se cambia el directorio de los archivos Log. Nueva ubicación (HERO_QUEST/Log)
+
 __[Changelog 2.5.1]__ 04/10/2023
 - Se añaden las siguientes funciones:
     -Confirmación de eliminación de datos de Log.
