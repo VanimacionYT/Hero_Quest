@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-# Hero_Quest-2.5.1
-=======
->>>>>>> 9daf3151f232a61fa6be057b775b31149c363285
+
+# Hero Quest 2.5.1
+
 ## Academy project developed in Python, using Jupyter Notebook and Visual Studio Code as IDE, which I will update with everything I learn and can be applied.
 
 This project/game is my first serius in depth game made in python following the instructions and information that I gather from my Python academy [Tokio School](https://www.tokioschool.com).
