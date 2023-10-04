@@ -6,7 +6,16 @@ Este juego no es mas que un mero proyecto académico.
 
 En este documento de texto "Changelogs.txt" redactaré los cambios que se reporten en el juego.
 
-__[Changelog 2.5]__
+__[Changelog 2.5.1]__ 04/10/2023
+- Se añaden las siguientes funciones:
+    -Confirmación de eliminación de datos de Log.
+    -Visor de la versión en el menú.
+    -Visor de la fecha de cada Changelog.
+- Se arregla lo siguiente:
+    -Eliminado "locale.setlocale(locale.LC_ALL, 'es-ES')" debido a los errores generados. Ahora la hora de los logs se realizan mediante: "locale.setlocale(locale.LC_ALL, 'C')" usando la hora del dispositivo.
+    -Eliminadas las indexaciones inecesarias del código
+
+__[Changelog 2.5]__ 02/10/2023
 - Se añaden las siguientes funciones:
     -Sistema de logs para los personajes creados y sus parámetros.
     -Sistema de logs sobre las partidas, el método de eleccion de parámetros y sus resultados.
