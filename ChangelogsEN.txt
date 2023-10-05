@@ -1,0 +1,52 @@
+[This project is developed in the "Python" language using the "Jupyter Notebook" and “Visual Studio Code” IDE]
+
+Hero Quest is a game developed from an assignment at my Python academy which I have decided to keep updated, adding all the useful functionalities that I learn.
+
+This game is nothing more than a mere academic project.
+
+In this text document I will write the changes that are reported in the game.
+
+__[Changelog 2.6.0]__ 05/10/2023
+-The following functions are added:
+    -A duplicate version of the original notebook code (.ipynb) is created in a python format (.py)
+    -The logs directory is improved, separating the logs of the notebook version from the python version (HERO_QUEST/Log/Notebook & HERO_QUEST/Log/Python).
+    -Gramatical corrections at "ChangelogsES.txt"
+    -Addition of the file "ChangelogsEN.txt" (Translation from Spanish to English of the original ChangelogsES.txt file)
+-What is the next step:
+    -Prepare a version of the code defined in en-EN (English).
+
+__[Changelog 2.5.2]__ 05/10/2023
+- The following functions are added:
+    - The directory of the Log files is changed. New location (HERO_QUEST/Log/Notebook)
+
+__[Changelog 2.5.1]__ 04/10/2023
+- The following functions are added:
+    -Confirmation of deletion of Log data.
+    -Version displayed in the menu.
+    -Date display of each Changelog.
+- The following is fixed:
+    -Removed "locale.setlocale(locale.LC_ALL, 'es-ES')" due to errors generated. Now the time of the logs is made by: "locale.setlocale(locale.LC_ALL, 'C')" using the time of the device.
+    -Eliminated unnecessary code indexing
+
+__[Changelog 2.5]__ 02/10/2023
+- The following functions are added:
+    -Log system for the created characters and their parameters.
+    -Log system about the games, the method of choosing parameters and their results.
+    -New menu section to delete logs independently.
+    -Now the parameter system selection steps (manual/automatic) are deleted after choosing.
+    -Now the parameter selection screen, both manual and automatic, is deleted after defining them.
+    -Now when the character parameters are displayed, the game options are also displayed (Parameter Selection Mode) and these are saved in the game logs.
+    -Now after each turn the number of turns played is recorded to save in the logs.
+
+__[Changelog 2.2]__
+- The following functions are added:
+    -The start menu is now removed after pressing "Enter".
+    -The menu and character selection messages are altered.
+    -The player is allowed to choose the number of turns.
+
+__[Changelog 2.0]__
+- The following functions are added:
+    -Automatic parameter selection system (using a virtual die).
+
+__[Changelog 1.0]__
+- The game is created with the base features. The game method is simple, the game starts, the parameters of each character are chosen and, based on a virtual dice method, turns are created in which each character is attacked or defended until the life of one of them reaches 0 and the game is over.

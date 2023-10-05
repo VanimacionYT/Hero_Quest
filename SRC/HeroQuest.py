@@ -258,7 +258,7 @@ def LogPartida(Personaje1,Personaje1Name, Personaje2, Personaje2Name,opcion, Tur
 #Titulo
 print("--------------------")
 print("----[HERO QUEST]----")
-print("--------------------\t\t\t\tV2.5.1\n")
+print("--------------------\t\t\t\tV2.6.0\n")
 
 #Sistema para iniciar
 print("Presiona 'ENTER' para empezar!")
