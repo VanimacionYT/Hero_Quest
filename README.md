@@ -1,5 +1,5 @@
 
-# Hero Quest 2.5.1
+# Hero Quest
 
 ## Academy project developed in Python, using Jupyter Notebook and Visual Studio Code as IDE, which I will update with everything I learn and can be applied.
 
