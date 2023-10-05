@@ -1,0 +1,52 @@
+[Este proyecto está desarrollado en el lenguaje "Python" usando el IDE de "Jupyter Notebook" y “Visual Studio Code”]
+
+Hero Quest es un juego desarrollado a partir de una tarea de mi academia de python el cual he decidido mantener actualizado, añadiendo todas las funcionalidades útiles que vaya aprendiendo.
+
+Este juego no es más que un mero proyecto académico.
+
+En este documento de texto redactaré los cambios que se reporten en el juego.
+
+__[Changelog 2.6.0]__ 05/10/2023
+-Se añaden las siguientes funciones:
+    -Se crea una versión duplicada del código original notebook (ipynb) a un formato python (.py)
+    -Se mejora el directorio de logs, separando los logs de la versión notebook de la versión python (HERO_QUEST/Log/Notebook & HERO_QUEST/Log/Python).
+    -Correcciones gramaticales en el documento "ChangelogsES.txt"
+    -Addición del documento "ChangelogsEN.txt" (Traducción del documento ChangelogsES)
+-Qué es lo siguiente:
+    -Preparar una versión del código definida en en-EN (inglés).
+
+__[Changelog 2.5.2]__ 05/10/2023
+- Se añaden las siguientes funciones:
+    - Se cambia el directorio de los archivos Log. Nueva ubicación (HERO_QUEST/Log/Notebook)
+
+__[Changelog 2.5.1]__ 04/10/2023
+- Se añaden las siguientes funciones:
+    -Confirmación de eliminación de datos de Log.
+    -Visor de la versión en el menú.
+    -Visor de la fecha de cada Changelog.
+- Se arregla lo siguiente:
+    -Eliminado "locale.setlocale(locale.LC_ALL, 'es-ES')" debido a los errores generados. Ahora la hora de los logs se realizan mediante: "locale.setlocale(locale.LC_ALL, 'C')" usando la hora del dispositivo.
+    -Eliminadas las indexaciones innecesarias del código
+
+__[Changelog 2.5]__ 02/10/2023
+- Se añaden las siguientes funciones:
+    -Sistema de logs para los personajes creados y sus parámetros.
+    -Sistema de logs sobre las partidas, el método de elección de parámetros y sus resultados.
+    -Nuevo apartado del menú para borrar los logs de manera independiente.
+    -Ahora los pasos de elección de sistema de parámetros (manual/automático) se borran tras elegir.
+    -Ahora la pantalla de elección de parámetros, tanto manual como en automático, se borran tras definirlos.
+    -Ahora en el momento que se muestran los parámetros de los personajes, también se muestran las opciones de la partida (Modo de elección de parámetros) y estos se guardan en los logs de partida.
+    -Ahora tras cada turno se registra el número de turnos jugados para guardar en los logs.
+
+__[Changelog 2.2]__
+- Se añaden las siguientes funciones:
+    -El menú de inicio ahora se elimina tras presionar "Enter".
+    -Se alteran los mensajes del menú y de elección de personaje.
+    -Se permite que el jugador elija la cantidad de turnos.
+
+__[Changelog 2.0]__
+- Se añaden las siguientes funciones:
+    -Sistema de elección de parámetros de manera automática (usando un dado virtual).
+
+__[Changelog 1.0]__
+- El juego es creado con las características base. El método de juego es simple, se inicia la partida, se escogen los parámetros de cada personaje y, a partir de un método de dado virtual, se crean turnos por los cuales se ataca o defiende cada personaje hasta que la vida de uno de ellos llegue a 0 y se acabe la partida.
