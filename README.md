@@ -12,7 +12,7 @@ As of now it includes:
 * A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz"
 
 # Python Version 
-As of right now using python 3.11.4 - Working on changing to version 3.12.0
+As of right now using python version **3.12.0**
 
 # Dependencies
 As of now using the following libraries:
@@ -29,7 +29,7 @@ As of now using the following libraries:
   Pip instalation ```pip install TIME-python```
 
 # How to modificate
-Keep in mind i'm new, I don't know 100% how to use, manage or assist on GitHub
+Keep in mind i'm new, I don't know 100% how to use, manage or assist on GitHub.
 
 Because this is a project of mine I give full consent if you want to use, copy, modify or help me upgrade the project.
 Feel free to modify as you want.
@@ -38,10 +38,12 @@ Feel free to modify as you want.
 
 ## What does this project contain?
 
-This project contains inside the SRC folder the 3 key files for the program to work
-* HeroQuest X.X.X.ipynb is the main file where all the code is located. (for now the functions, variables, comments... are written in spanish. Working on an english version!)
-* LogPartidas.txt is the file where the log of every game is saved
-* LogPersonajes.txt is the file where the log of every game is saved
+This project contains inside the SRC folder the key files for the program to work
+* HeroQuest.ipynb is the main file where all the code is located. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
+
+Also the Log folder is the one where the logs are stores, such as:
+* LogPartidas.txt is the file where the log of every game is saved.
+* LogPersonajes.txt is the file where the log of every game is saved.
 
 ## Known Issues
 

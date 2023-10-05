@@ -8,7 +8,7 @@ En este documento de texto "Changelogs.txt" redactaré los cambios que se report
 
 __[Changelog 2.5.2]__ 05/10/2023
 - Se añaden las siguientes funciones:
-    - Se cambia el directorio de los archivos Log. Nueva ubicación (HERO_QUEST/SRC/Log/Notebook)
+    - Se cambia el directorio de los archivos Log. Nueva ubicación (HERO_QUEST/Log/Notebook)
 
 __[Changelog 2.5.1]__ 04/10/2023
 - Se añaden las siguientes funciones:
