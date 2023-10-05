@@ -2,23 +2,20 @@
 
 #Importamos librerias
 import random
-from IPython.display import clear_output
-from datetime import datetime
 import locale
 import time
+from IPython.display import clear_output
+from datetime import datetime
 
 #Creamnos la clase Personaje
 class Personaje:
-    
-    #___ATRIBUTOS___#
-    
-    __nombre = ""
-    __vida = 0 #numero de puntos de vida, baja -1 por ataque efectuado exitosamente
-    __ataque = 0 #numero de lanzamientos de dado para atacar
-    __defensa = 0 #numero de tiradas de dado para defender
-    personajeVivo = True #indica si el personaje sigue vivo
-    
-    #___MÉTODOS___#
+
+    #Definimos atributos
+    __nombre = ""           #nombre del personaje
+    __vida = 0              #numero de puntos de vida, baja -1 por ataque efectuado exitosamente
+    __ataque = 0            #numero de lanzamientos de dado para atacar
+    __defensa = 0           #numero de tiradas de dado para defender
+    personajeVivo = True    #indica si el personaje sigue vivo
     
     #Constructor
     def __init__(self, nombre, vida, ataque, defensa):
@@ -43,7 +40,7 @@ class Personaje:
         elif self.__vida <= 0:
             self.personajeVivo = False
         return self.personajeVivo
-    
+     
     #Metodo para atacar. Se lanza un dado virtual de 6 caras x numero de veces. Si el numero es mayor a 3 se asigna 1 punto de ataque esa ronda. Acumulable.
     def atacar(self):
         numataques = 0
@@ -53,10 +50,8 @@ class Personaje:
                 numataques += 1
             x += 1
         return numataques
-                
     
-    #___GETTERS___#
-    
+    #Definimos Getters
     @property
     def nombre(self):
         return self.__nombre
@@ -70,8 +65,7 @@ class Personaje:
     def defensa(self):
         return self.__defensa
     
-    #___SETTERS___#
-    
+    #Definimos Setters
     @nombre.setter
     def nombre(self, nuevo):
         self.__nombre = nuevo       
@@ -92,8 +86,7 @@ class Momia(Personaje):
     def __init__(self, nombre_momia, vida_momia, ataque_momia, defensa_momia):
         super().__init__(nombre_momia, vida_momia, ataque_momia, defensa_momia)
                
-    #___GETTERS___#
-    
+    #Definimos Getters
     @property
     def nombre_momia(self):
         return nombre_momia   
@@ -107,8 +100,7 @@ class Momia(Personaje):
     def defensa_momia(self):
         return defensa_momia
     
-    #___SETTERS___#
-    
+    #Definimos Setters
     @nombre_momia.setter
     def nombre_momia(self, nuevo):
         nombre_momia = nuevo       
@@ -149,8 +141,7 @@ class Barbaro(Personaje):
     def __init__(self, nombre_barbaro, vida_barbaro, ataque_barbaro, defensa_barbaro):
         super().__init__(nombre_barbaro, vida_barbaro, ataque_barbaro, defensa_barbaro)
         
-    #___GETTERS___#
-    
+    #Definimos Getters
     @property
     def nombre_barbaro(self):
         return nombre_barbaro   
@@ -164,8 +155,7 @@ class Barbaro(Personaje):
     def defensa_barbaro(self):
         return self.defensa_barbaro
     
-    #___SETTERS___#
-    
+    #Definimos Setters
     @nombre_barbaro.setter
     def nombre_barbaro(self, nuevo):
         nombre_barbaro = nuevo        
@@ -230,7 +220,7 @@ def LogPersonajes(Personaje1, Atributos1, Personaje2, Atributos2):
     LogPeDate =  (dt.strftime("[-- Characters Log Created At: %d/%m/%Y - %H:%M:%S --]"))
     LogPe = ("\n{}\n{} con los atributos: {}\n{} con los atributos {}\n--------------------------------------------------------".format(LogPeDate, Personaje1, Atributos1, Personaje2, Atributos2))
     #Cargamos el .excel que registra los datos, los cargamos y lo cerramos
-    ArchivoLogPE = open('Log/Python/LogPersonajes.txt', 'a')
+    ArchivoLogPE = open('Log/LogPersonajes.txt', 'a')
     ArchivoLogPE.write(LogPe)
     ArchivoLogPE.close()
     
@@ -248,7 +238,7 @@ def LogPartida(Personaje1,Personaje1Name, Personaje2, Personaje2Name,opcion, Tur
     LogPaDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
     LogPa = ("\n{}\nPersonaje 1 | {}:{}\nPersonaje 2 | {}:{}\nMétodo de elección = {}\nTurnos [Elejidos/Jugados] = {}/{}\nResultado:{}\n--------------------------------------------------".format(LogPaDate, Personaje1Name, Personaje1, Personaje2Name, Personaje2, Metodo, TurnosElejidos, TurnosJugados, Resultado))
     #Cargamos el .excel que registra los datos, los cargamos y lo cerramos
-    ArchivoLogPA = open('Log/Python/LogPartidas.txt', 'a')
+    ArchivoLogPA = open('Log/LogPartidas.txt', 'a')
     ArchivoLogPA.write(LogPa)
     ArchivoLogPA.close()
     
@@ -282,12 +272,12 @@ while menu == True:
             locale.setlocale(locale.LC_ALL, 'C')
             dt = datetime.now()
             LogRefreshDate =  (dt.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
-            ArchivoLogPE = open('Log/Python/LogPersonajes.txt', 'w').close
-            ArchivoLogPE = open('Log/Python/LogPersonajes.txt', 'w')
+            ArchivoLogPE = open('Log/LogPersonajes.txt', 'w').close
+            ArchivoLogPE = open('Log/LogPersonajes.txt', 'w')
             ArchivoLogPE.write("{}\nBienvenido al archivo de Log Personajes\n---------------------------------------".format(LogRefreshDate))
             ArchivoLogPE.close()
-            ArchivoLogPA = open('Log/Python/LogPartidas.txt', 'w').close
-            ArchivoLogPA = open('Log/Python/LogPartidas.txt', 'w')
+            ArchivoLogPA = open('Log/LogPartidas.txt', 'w').close
+            ArchivoLogPA = open('Log/LogPartidas.txt', 'w')
             ArchivoLogPA.write("{}\nBienvenido al archivo de Log Partidas\n-------------------------------------".format(LogRefreshDate))
             ArchivoLogPA.close()
             print("¡Logs Reiniciados!")
@@ -361,29 +351,30 @@ LogPersonajes(Momia1.nombre, Momia1.logInfo(), Barbaro1.nombre, Barbaro1.logInfo
 
 #Se indican los turnos
 print("\n¿Cuántos turnos máximos quiere jugar?: ")
-Turnos = int(input())
+turnos = int(input())
 #Se asigna los valores para el sistema de turnos. J1 es la momia y J2 es el barbaro.
-j1 = "B"
-j2 = "M"
+Atacante = "Bárbaro"
+Defensor = "Momia"
 turno = 0
-for x in range(Turnos):
+for x in range(turnos):
     turno += 1
     #Mediante un bucle y varios If deternminamos los turnos
     time.sleep(1) #implentamos un timesleep(x) para poder hacer que los bucles tengan pausa de x segundos.
-    if j1 == "B":
-        j1 = "M"
-    elif j1 == "M":
-        j1 = "B"
-    if j2 == "B":
-        j2 = "M"
-    elif j2 == "M":
-        j2 = "B"
-    print("\n<<< TURNO {} | {} vs {} >>>".format(x + 1, j1, j2))
+    if Atacante == "Bárbaro":
+        Atacante = "Momia"
+    elif Atacante == "Momia":
+        Atacante = "Bárbaro"
+    if Defensor == "Bárbaro":
+        Defensor = "Momia"
+    elif Defensor == "Momia":
+        Defensor = "Bárbaro"
+    turnolog = ("\n<<< TURNO {} | {} ataca a {} >>>".format(x + 1, Atacante, Defensor))
+    print(turnolog)
     #Dependiendo de quien es el Jugador 1 (atacante) se ejecutara el .atacar de un jugador u otro
-    if j1 == "B":
+    if Atacante == "Bárbaro":
         Numataques = Barbaro1.atacar()
         Momia1.defender(Numataques)
-    elif j1 == "M":
+    elif Atacante == "Momia":
         Numataques = Momia1.atacar()
         Barbaro1.defender(Numataques)
     #tras los ataques se revisa si los jugadores estan vivos
@@ -391,20 +382,21 @@ for x in range(Turnos):
     Momia1.estarVivo()
     #Dependiendo de lo que devuelva .personajeVivo() se sigue o no con el combate
     if Barbaro1.personajeVivo == False:
-        print("\n\tEl ganador del combate es la Momia {} con {} pt de vida".format(Momia1.nombre, Momia1.vida))
+        resultado = ("\n\tEl ganador del combate es la Momia {} con {} pt de vida".format(Momia1.nombre, Momia1.vida))
         break
     if Momia1.personajeVivo == False:
-        print("\n\tEl ganador del combate es el Barbaro {} con {} pt de vida".format(Barbaro1.nombre, Barbaro1.vida))
+        resultado = ("\n\tEl ganador del combate es el Barbaro {} con {} pt de vida".format(Barbaro1.nombre, Barbaro1.vida))
         break
 if Barbaro1.personajeVivo == True and Momia1.personajeVivo == True:
-    print("\n\tEl combate queda en un empate! Ambos jugadores sobreviven!")
+    resultado = ("\n\tEl combate queda en un empate! Ambos jugadores sobreviven!")
+print(resultado)
 
 #Se muestra por pantalla los resultados y se guardan los logs de la partida.        
 ResultadoMomia = ("\n\tMOMIA:   {} queda con {} pt de vida.".format(Momia1.nombre, Momia1.vida))    
 ResultadoBarbaro = ("\n\tBARBARO: {} queda con {} pt de vida.".format(Barbaro1.nombre, Barbaro1.vida))
 ResultadoPartida = (ResultadoMomia + ResultadoBarbaro)
 print(ResultadoPartida)
-LogPartida(Momia1.logInfo(),Momia1.nombre, Barbaro1.logInfo(),Barbaro1.nombre, opcion, turno, Turnos, ResultadoPartida)
+LogPartida(Momia1.logInfo(),Momia1.nombre, Barbaro1.logInfo(),Barbaro1.nombre, opcion, turno, turnos, ResultadoPartida)
 
 
 #Comming soon English version!
