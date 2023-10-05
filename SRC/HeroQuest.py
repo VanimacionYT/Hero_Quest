@@ -1,5 +1,12 @@
 #Codigo del Juego
 
+#Importamos librerias
+import random
+from IPython.display import clear_output
+from datetime import datetime
+import locale
+import time
+
 #Creamnos la clase Personaje
 class Personaje:
     
@@ -197,34 +204,27 @@ class Dado():
     #Metodo para los turnos
     def tira():
         caras = 6
-        import random
         dado = (random.randint(1, caras))
         return dado
     #Metodo para generar puntos de vida aleatorios
     def tirav():
         caras = 15
-        import random
         dado = (random.randint(3, caras))
         return dado
     #Metodo para generar puntos de ataque aleatorios
     def tiraa():
         caras = 10
-        import random
         dado = (random.randint(1, caras))
         return dado
     #Metodo para generar puntos de defensa aleatorios
     def tirad():
         caras = 10
-        import random
         dado = (random.randint(1, caras))
         return dado
     
 #Creamos Funciones para almacenar los Logs de la partida y los personajes.
 def LogPersonajes(Personaje1, Atributos1, Personaje2, Atributos2):
     # Colocamos un timestamp
-    from datetime import datetime
-    import pytz
-    import locale
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogPeDate =  (dt.strftime("[-- Characters Log Created At: %d/%m/%Y - %H:%M:%S --]"))
@@ -243,9 +243,6 @@ def LogPartida(Personaje1,Personaje1Name, Personaje2, Personaje2Name,opcion, Tur
         Metodo = "Manual"
         
     # Colocamos un timestamp
-    from datetime import datetime
-    import pytz
-    import locale
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogPaDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
@@ -265,7 +262,6 @@ print("Presiona 'ENTER' para empezar!")
 input()
 
 #Borrar lo anterior
-from IPython.display import clear_output
 clear_output()
 
 #Se crea un menu para elegir si jugar o borrar logs
@@ -283,9 +279,6 @@ while menu == True:
         if borrar == "1":
             #Si elige borarlos se reescriben los logs con un mensaje que indica la fecha de la limpieza y se limpia la consola.
             clear_output()
-            from datetime import datetime
-            import pytz
-            import locale
             locale.setlocale(locale.LC_ALL, 'C')
             dt = datetime.now()
             LogRefreshDate =  (dt.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
@@ -376,8 +369,7 @@ turno = 0
 for x in range(Turnos):
     turno += 1
     #Mediante un bucle y varios If deternminamos los turnos
-    import time #implentamos un import.time para poder hacer que los bucles tengan pausa
-    time.sleep(1)
+    time.sleep(1) #implentamos un timesleep(x) para poder hacer que los bucles tengan pausa de x segundos.
     if j1 == "B":
         j1 = "M"
     elif j1 == "M":
