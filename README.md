@@ -1,7 +1,7 @@
 
 # Hero Quest
 
-## Academy project developed in Python, using Jupyter Notebook and Visual Studio Code as IDE, which I will update with everything I learn and can be applied.
+## Academy project developed in Python, originaly using Jupyter Notebook, and now developed on Visual Studio Code as IDE, which I will update with everything I learn and can be applied.
 
 This project/game is my first serius in depth game made in python following the instructions and information that I gather from my Python academy [Tokio School](https://www.tokioschool.com).
 As of now it includes:
@@ -10,10 +10,10 @@ As of now it includes:
 * A *character system* using objects, clases, getters, setters.
 * A Log system that captures the events and registers characters informarion and game results in 2 diferent text files using *file management*
 * A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz"
-* 2 code versions (jupyter notebook and python)
 
 # Python Version 
-As of right now using python version **3.12.0**
+As of right now using python version **3.11.0** for compatibility reasons. Subject to the [Auto-Py-To-Exe](https://github.com/brentvollebregt/auto-py-to-exe) standarts.
+Planing to port to python version **3.12.0** (newewst)
 
 # Dependencies
 As of now using the following libraries:
@@ -28,21 +28,33 @@ As of now using the following libraries:
 Keep in mind i'm new, I don't know 100% how to use, manage or assist on GitHub.
 
 Because this is a project of mine I give full consent if you want to use, copy, modify or help me upgrade the project.
-Feel free to modify as you want.
+Feel free to modify as you want respecting the lisence terms.
 
-* For any questions I leave you here my contact discord *(heyne_cositas / VanimaYT#8738)*
+For any issues or sugestions you can contact me via discord: *(heyne_cositas / VanimaYT#8738)*
 
 ## What does this project contain?
 
 This project contains inside the SRC folder the key files for the program to work
-* HeroQuest.ipynb is the main file where all the code is located. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
+* HeroQuest.py is the main source for the .exe version. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
 
 Also the Log folder is the one where the logs are stores, such as:
 * LogPartidas.txt is the file where the log of every game is saved.
 * LogPersonajes.txt is the file where the log of every game is saved.
 
+Release may include:
+* The .exe file, necessary to boot the program as a game. (*May launch errors and is far from perfect. Please read [Known Issues](https://github.com/VanimacionYT/Hero_Quest/blob/main/README.md#known-issues))
+
 ## Known Issues
 
-- The prints won't allways show up in the notebook version (not sure how to fix it but i'll work on it)
+- Windows detects the Hero-Quest.exe at (Hero-Quest.zip v2.6.0) as a **threat**.
+    -Fix: This is a common error on th python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send microsoft a copy to flag as *false positive*
+     [Docs](https://stackoverflow.com/questions/54730851/windows-defender-detecting-python-exe-as-trojan) 
 
 If you find any issue or bug, don't hesitate to try and tell me or even fix it!
+
+## What happended to the Jupyter Notebokk version?
+
+After consideration I decided that for improving my work flow and my fesults I will only focus con the main idea of creating the proyect/game. As of now (v2.6.0) the .ipynb version of HeroQuest will be deleted.
+If you want to use the code in jupyter is as simple as copying the main codes to the platform.
+
+For any issues or sugestions you can contact me via discord: *(heyne_cositas / VanimaYT#8738)*
