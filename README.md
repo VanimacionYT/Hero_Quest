@@ -10,6 +10,7 @@ As of now it includes:
 * A *character system* using objects, clases, getters, setters.
 * A Log system that captures the events and registers characters informarion and game results in 2 diferent text files using *file management*
 * A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz"
+* 2 code versions (jupyter notebook and python)
 
 # Python Version 
 As of right now using python version **3.12.0**
@@ -19,11 +20,6 @@ As of now using the following libraries:
 * Random
 * Datetime
 * Locale
-* Pytz (unused for now but planing to use. Required to install to avoid compilation errors.) [Link](https://pypi.org/project/pytz/)
-
-  Pip instalation ```pip install pytz```
-
-  Tarball ```python setup.py install```
 * Time [Link](https://pypi.org/project/TIME-python/#:~:text=Installing%20%26%20importing&text=The%20TIME%20package%20is%20available,date%20with%20the%20latest%20changes.&text=To%20upgrade%20the%20current%20version,install%20TIME-python%20--upgrade%20.&text=All%20available%20versions%20are%20listed%20in%20PyPI.)
 
   Pip instalation ```pip install TIME-python```
@@ -47,6 +43,6 @@ Also the Log folder is the one where the logs are stores, such as:
 
 ## Known Issues
 
-- The prints won't allways show up (not sure how to fix it but i'll work on it)
+- The prints won't allways show up in the notebook version (not sure how to fix it but i'll work on it)
 
 If you find any issue or bug, don't hesitate to try and tell me or even fix it!
