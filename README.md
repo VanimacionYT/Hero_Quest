@@ -13,7 +13,8 @@ As of now it includes:
 * 2 code versions (jupyter notebook and python)
 
 # Python Version 
-As of right now using python version **3.12.0**
+As of right now using python version **3.11.0** for compatibility reasons. Subject to the [Auto-Py-To-Exe](https://github.com/brentvollebregt/auto-py-to-exe) standarts.
+Planing to port to python version **3.12.0** (newewst)
 
 # Dependencies
 As of now using the following libraries:
@@ -36,13 +37,20 @@ Feel free to modify as you want.
 
 This project contains inside the SRC folder the key files for the program to work
 * HeroQuest.ipynb is the main file where all the code is located. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
+* HeroQuest.py is the main source for the .exe version. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
 
 Also the Log folder is the one where the logs are stores, such as:
 * LogPartidas.txt is the file where the log of every game is saved.
 * LogPersonajes.txt is the file where the log of every game is saved.
 
+Release may include:
+* The .exe file, necessary to boot the program as a game. (*May launch errors and is far from perfect. Please read [Known Issues](https://github.com/VanimacionYT/Hero_Quest/blob/main/README.md#known-issues))
+
 ## Known Issues
 
+- Windows detects the Hero-Quest.exe at (Hero-Quest.zip v2.6.0) as a **threat**.
+    -Fix: This is a common error on th python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send microsoft a copy to flag as *false positive*
+     [Docs](https://stackoverflow.com/questions/54730851/windows-defender-detecting-python-exe-as-trojan) 
 - The prints won't allways show up in the notebook version (not sure how to fix it but i'll work on it)
 
 If you find any issue or bug, don't hesitate to try and tell me or even fix it!
