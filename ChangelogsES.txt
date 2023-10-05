@@ -12,6 +12,7 @@ __[Changelog 2.6.0]__ 05/10/2023
     -Se mejora el directorio de logs, separando los logs de la versión notebook de la versión python (HERO_QUEST/Log/Notebook & HERO_QUEST/Log/Python).
     -Correcciones gramaticales en el documento "ChangelogsES.txt"
     -Addición del documento "ChangelogsEN.txt" (Traducción del documento ChangelogsES)
+    -Se elimina la version de Jupyter Notebook (.ipynb) mas info en README.md
 -Qué es lo siguiente:
     -Preparar una versión del código definida en en-EN (inglés).
 
