@@ -13,6 +13,8 @@ __[Changelog 2.6.0]__ 05/10/2023
     -Gramatical corrections at "ChangelogsES.txt"
     -Addition of the file "ChangelogsEN.txt" (Translation from Spanish to English of the original ChangelogsES.txt file)
     -Jupyter Notebook Source file is deleted (.ipynb) more info at the README.md
+    -Main code founded at HeroQuest.py in older versions, is now separated in many files to make a better understandeable hirearchy.
+    -A menu is added at the end of every game to replay another game, go to the menu or quit the game.
 -What is the next step:
     -Prepare a version of the code defined in en-EN (English).
 

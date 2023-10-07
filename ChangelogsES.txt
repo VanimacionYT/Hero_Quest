@@ -13,6 +13,8 @@ __[Changelog 2.6.0]__ 05/10/2023
     -Correcciones gramaticales en el documento "ChangelogsES.txt"
     -Addición del documento "ChangelogsEN.txt" (Traducción del documento ChangelogsES)
     -Se elimina la version de Jupyter Notebook (.ipynb) mas info en README.md
+    -El codigo encontrado en HeroQuest.py en versiones anteriore, ahora se separa en diversos archivos para practicar un codigo mas facil de ubicar y modificar.
+    -Se añade un menú final para repetir otra partida, regresar al menú o salir del juego.
 -Qué es lo siguiente:
     -Preparar una versión del código definida en en-EN (inglés).
 
