@@ -31,11 +31,15 @@ def Menu():
     #Se crea un menu para elegir si jugar o borrar logs
         menu = True
         while menu == True:
-            print("<---<-MAIN MENU->--->\n\nJugar HQ: 1\t|\tBorrar Logs:2\n")
+            print("<---<-MAIN MENU->--->\n\nJugar HQ: 1\t|\tBorrar Logs: 2\t\t|\tSalir: 3\n")
             mainmenu = input()
+            
+            if mainmenu == "1":
+                menu = False
+                GlobalState.GlobalGame = CurrentState.juego
 
-            #Si se elige borrar logs se aplica un texto de confirmación.
-            if mainmenu == "2":
+                #Si se elige borrar logs se aplica un texto de confirmación.
+            elif mainmenu == "2":
                 clear_output()
                 print("¿Estas seguro de querer borrar los logs?\nSi, Estoy seguro: 1\t|\tNo, No quiero borrarlos: 2")
                 confirmar = input()
@@ -58,9 +62,8 @@ def Menu():
                 elif confirmar == "2":
                     clear_output()
                     menu = True
-            elif mainmenu == "1":
-                menu = False
-                GlobalState.GlobalGame = CurrentState.juego
+            elif mainmenu == "3":
+                quit()
 
 def Game():
      #Mediante un if se selecciona la opcion de parametroa aleatorios o manuales
