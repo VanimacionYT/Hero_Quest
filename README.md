@@ -20,9 +20,10 @@ As of now using the following libraries:
 * Random
 * Datetime
 * Locale
-* Time [Link](https://pypi.org/project/TIME-python/#:~:text=Installing%20%26%20importing&text=The%20TIME%20package%20is%20available,date%20with%20the%20latest%20changes.&text=To%20upgrade%20the%20current%20version,install%20TIME-python%20--upgrade%20.&text=All%20available%20versions%20are%20listed%20in%20PyPI.)
-
-  Pip instalation ```pip install TIME-python```
+* Time [Link](https://pypi.org/project/TIME-python/)
+      Pip instalation ```pip install TIME-python```
+* Enum [Link](https://pypi.org/project/enum/)
+      Pip instalation ```pip install enum```
 
 # How to modificate
 Keep in mind i'm new, I don't know 100% how to use, manage or assist on GitHub.
