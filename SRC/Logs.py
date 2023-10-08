@@ -3,6 +3,19 @@ import locale
 from IPython.display import clear_output
 from datetime import datetime
 
+def CheckLogs():
+    clear_output()
+    with open('Log/LogSystem.txt', 'r') as ArchivoLogSys:
+        clear_output()
+        lines = len(ArchivoLogSys.readlines())
+        ArchivoLogSys.seek(0)
+
+        for x in range(lines):
+            Linea = ArchivoLogSys.readline()
+            Linea = Linea.split(", ")
+            print(f"\nPartida {x + 1} Fecha >>> {Linea[9]}\nMomia {Linea[0]}:\n\tVida >>>>> {Linea[1]}\n\tAtaque >>> {Linea[2]}\n\tDefensa >> {Linea[3]}\nBárbaro {Linea[4]}:\n\tVida >>>>> {Linea[5]}\n\tAtaque >>> {Linea[6]}\n\tDefensa >> {Linea[7]}\nGanador: {Linea[8]}\n--------------------------------------------------")
+
+
 def RemoveLogs():
     #Si elige borarlos se reescriben los logs con un mensaje que indica la fecha de la limpieza y se limpia la consola.
     clear_output()
@@ -49,12 +62,12 @@ def LogPartida(Personaje1,Personaje1Name, Personaje2, Personaje2Name,opcion, Tur
     with open('Log/LogPartidas.txt', 'a') as ArchivoLogPA:
         ArchivoLogPA.write(LogPa)
 
-def SystemLog(ListaDatos):
+def LogSystem(NombreMomia, Momia, NombreBarbaro, Barbaro, Ganador):
     # Colocamos un timestamp
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogSysDate =  (dt.strftime("%d/%m/%Y - %H:%M:%S"))
-    ListaDatos.append = LogSysDate
+    ListaDatos = f"{NombreMomia}, {Momia}, {NombreMomia}, {Barbaro}, {Ganador}, {LogSysDate}"
     with open('Log/LogSystem.txt', 'a') as ArchivoLogSys:
-        ArchivoLogSys.write(LogSysDate)
+        ArchivoLogSys.write(f"{ListaDatos}\n")
 

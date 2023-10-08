@@ -28,8 +28,7 @@ class Personaje:
     
     #Metodo guardado log sys
     def logSys(self):
-        SysLog = (self.__vida, self.__ataque, self.__defensa)
-        return SysLog
+        return f"{self.__vida}, {self.__ataque}, {self.__defensa}"
     
     #Metodo para verificar el estado del personaje. En caso de tener vida positiva el estado sera "vivo", en caso de vida negativa o cero el estado será "muerto".
     def estarVivo(self):

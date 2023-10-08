@@ -4,10 +4,9 @@ from IPython.display import clear_output
 from datetime import datetime
 from SRC.Dice import Dado
 from SRC.Players import Momia, Barbaro
-from SRC.Logs import LogPartida, LogPersonajes
+from SRC.Logs import LogPartida, LogPersonajes, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
-from SRC.Logs import RemoveLogs
 
 
 
@@ -32,15 +31,17 @@ def Menu():
     #Se crea un menu para elegir si jugar o borrar logs
         menu = True
         while menu == True:
-            print("<---<-MAIN MENU->--->\n\nJugar HQ: 1\t|\tBorrar Logs: 2\t\t|\tSalir: 3\n")
+            print("<---<-MAIN MENU->--->\n\nJugar HQ: 1\t|\tRevisar Logs: 2\t\t|\tBorrar Logs: 3\t\t|\tSalir: 4\n")
             mainmenu = input()
             
             if mainmenu == "1":
                 menu = False
                 GlobalState.GlobalGame = CurrentState.juego
 
-                #Si se elige borrar logs se aplica un texto de confirmación.
             elif mainmenu == "2":
+                CheckLogs()
+
+            elif mainmenu == "3":
                 clear_output()
                 print("¿Estas seguro de querer borrar los logs?\nSi, Estoy seguro: 1\t|\tNo, No quiero borrarlos: 2")
                 confirmar = input()
@@ -50,7 +51,8 @@ def Menu():
                 elif confirmar == "2":
                     clear_output()
                     menu = True
-            elif mainmenu == "3":
+
+            elif mainmenu == "4":
                 quit()
 
 def Game():
@@ -114,6 +116,8 @@ def Game():
             print("Módo de elección de parámetros: Manual")
         print("\n", Momia1)
         print("\n", Barbaro1)
+        MomiaSys = Momia1.logSys()
+        BarbaroSys = Barbaro1.logSys()
         LogPersonajes(Momia1.nombre, Momia1.logInfo(), Barbaro1.nombre, Barbaro1.logInfo())
 
         #Se indican los turnos
@@ -149,14 +153,14 @@ def Game():
             Momia1.estarVivo()
             #Dependiendo de lo que devuelva .personajeVivo() se sigue o no con el combate
             if Barbaro1.personajeVivo == False:
-                resultado = ("\n\tEl ganador del combate es la Momia {} con {} pt de vida".format(Momia1.nombre, Momia1.vida))
+                resultado = ("El ganador del combate es la Momia {} con {} pt de vida".format(Momia1.nombre, Momia1.vida))
                 break
             if Momia1.personajeVivo == False:
-                resultado = ("\n\tEl ganador del combate es el Barbaro {} con {} pt de vida".format(Barbaro1.nombre, Barbaro1.vida))
+                resultado = ("El ganador del combate es el Barbaro {} con {} pt de vida".format(Barbaro1.nombre, Barbaro1.vida))
                 break
         if Barbaro1.personajeVivo == True and Momia1.personajeVivo == True:
-            resultado = ("\n\tEl combate queda en un empate! Ambos jugadores sobreviven!")
-        print(resultado)
+            resultado = ("El combate queda en un empate! Ambos jugadores sobreviven!")
+        print(f"\n\t{resultado}")
 
         #Se muestra por pantalla los resultados y se guardan los logs de la partida.        
         ResultadoMomia = ("\n\tMOMIA:   {} queda con {} pt de vida.".format(Momia1.nombre, Momia1.vida))    
@@ -164,6 +168,7 @@ def Game():
         ResultadoPartida = (ResultadoMomia + ResultadoBarbaro)
         print(ResultadoPartida)
         LogPartida(Momia1.logInfo(),Momia1.nombre, Barbaro1.logInfo(),Barbaro1.nombre, opcion, turno, turnos, ResultadoPartida)
+        LogSystem(Momia1.nombre, MomiaSys, Barbaro1.nombre, BarbaroSys, resultado)
         GlobalState.GlobalGame = CurrentState.fin
 
 def End():
