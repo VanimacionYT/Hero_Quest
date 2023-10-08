@@ -6,6 +6,14 @@ Este juego no es más que un mero proyecto académico.
 
 En este documento de texto redactaré los cambios que se reporten en el juego.
 
+-Se añaden las siguientes funciones:
+    -Se añade una opcion para revisar todos los logs desde el menu del juego.
+    -Optimización del sistema de logs.
+    -Nueva funcion Log en SRC/Logs.
+    -Nuevas opciones para salir del juego desde la terminal.
+-Qué es lo siguiente:
+    -Transcribir todo a un versión del codigo definida en en-EN (English). Probablemente para la 2.7.0.... quien sabe
+
 __[Changelog 2.6.0]__ 05/10/2023
 -Se añaden las siguientes funciones:
     -Se crea una versión duplicada del código original notebook (ipynb) a un formato python (.py)

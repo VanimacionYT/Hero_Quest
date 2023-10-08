@@ -6,6 +6,15 @@ This game is nothing more than a mere academic project.
 
 In this text document I will write the changes that are reported in the game.
 
+__[Changelog 2.7.0]__ 08/10/2023
+-The following functions are added:
+    -Added a "check logs" button in menu that shows all logs.
+    -Optimized log system.
+    -New log function in SRC/Logs.
+    -Added new exit options along the game.
+-What is the next step:
+    -Transcript everything to a version of the code defined in en-EN (English). Probably for 2.8.0... who knows
+
 __[Changelog 2.6.0]__ 05/10/2023
 -The following functions are added:
     -A duplicate version of the original notebook code (.ipynb) is created in a python format (.py)
