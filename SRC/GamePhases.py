@@ -7,6 +7,7 @@ from SRC.Players import Momia, Barbaro
 from SRC.Logs import LogPartida, LogPersonajes
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
+from SRC.Logs import RemoveLogs
 
 
 
@@ -45,20 +46,7 @@ def Menu():
                 confirmar = input()
                 
                 if confirmar == "1":
-                    #Si elige borarlos se reescriben los logs con un mensaje que indica la fecha de la limpieza y se limpia la consola.
-                    clear_output()
-                    locale.setlocale(locale.LC_ALL, 'C')
-                    dt = datetime.now()
-                    LogRefreshDate =  (dt.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
-                    ArchivoLogPE = open('Log/LogPersonajes.txt', 'w').close
-                    ArchivoLogPE = open('Log/LogPersonajes.txt', 'w')
-                    ArchivoLogPE.write("{}\nBienvenido al archivo de Log Personajes\n---------------------------------------".format(LogRefreshDate))
-                    ArchivoLogPE.close()
-                    ArchivoLogPA = open('Log/LogPartidas.txt', 'w').close
-                    ArchivoLogPA = open('Log/LogPartidas.txt', 'w')
-                    ArchivoLogPA.write("{}\nBienvenido al archivo de Log Partidas\n-------------------------------------".format(LogRefreshDate))
-                    ArchivoLogPA.close()
-                    print("¡Logs Reiniciados!")
+                    RemoveLogs()
                 elif confirmar == "2":
                     clear_output()
                     menu = True

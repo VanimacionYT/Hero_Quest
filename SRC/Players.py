@@ -26,6 +26,11 @@ class Personaje:
     def logInfo(self):
         return "\n- Vida    > {} pt\n- Ataque  > {} pt\n- Defensa > {} pt".format(self.__vida, self.__ataque, self.__defensa)
     
+    #Metodo guardado log sys
+    def logSys(self):
+        SysLog = (self.__vida, self.__ataque, self.__defensa)
+        return SysLog
+    
     #Metodo para verificar el estado del personaje. En caso de tener vida positiva el estado sera "vivo", en caso de vida negativa o cero el estado será "muerto".
     def estarVivo(self):
         if self.__vida > 0:
@@ -82,16 +87,16 @@ class Momia(Personaje):
     #Definimos Getters
     @property
     def nombre_momia(self):
-        return nombre_momia   
+        return self.nombre_momia   
     @property
     def vida_momia(self):
-        return vida_momia   
+        return self.vida_momia   
     @property
     def ataque_momia(self):
-        return ataque_momia   
+        return self.ataque_momia   
     @property
     def defensa_momia(self):
-        return defensa_momia
+        return self.defensa_momia
     
     #Definimos Setters
     @nombre_momia.setter
@@ -137,13 +142,13 @@ class Barbaro(Personaje):
     #Definimos Getters
     @property
     def nombre_barbaro(self):
-        return nombre_barbaro   
+        return self.nombre_barbaro   
     @property
     def vida_barbaro(self):
-        return vida_barbaro    
+        return self.vida_barbaro    
     @property
     def ataque_barbaro(self):
-        return ataque_barbaro    
+        return self.ataque_barbaro    
     @property
     def defensa_barbaro(self):
         return self.defensa_barbaro
