@@ -35,8 +35,8 @@ For any issues or sugestions you can contact me via discord: *(heyne_cositas / V
 
 ## What does this project contain?
 
-This project contains inside the SRC folder the key files for the program to work
-* HeroQuest.py is the main source for the .exe version. (for now the functions, variables, comments... are written in spanish. Working on an english version!).
+* This project contains inside the SRC folder the key files for the program to work
+* HeroQuest.py is the main source for the .exe version. and the manager of all the files in SRC/.
 
 Also the Log folder is the one where the logs are stores, such as:
 * LogPartidas.txt is the file where the log of every game is saved.
@@ -47,15 +47,15 @@ Release may include:
 
 ## Known Issues
 
-- Windows detects the Hero-Quest.exe at (Hero-Quest.zip v2.6.0) as a **threat**.
-    -Fix: This is a common error on th python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send microsoft a copy to flag as *false positive*
+- Windows detects the Hero-Quest.exe at (Hero-Quest.zip) as a **threat**.
+    -Fix: This is a common error on the python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send Microsoft a copy to flag as *false positive*, but that is under consideration.
      [Docs](https://stackoverflow.com/questions/54730851/windows-defender-detecting-python-exe-as-trojan) 
 
 If you find any issue or bug, don't hesitate to try and tell me or even fix it!
 
 ## What happended to the Jupyter Notebokk version?
 
-After consideration I decided that for improving my work flow and my fesults I will only focus con the main idea of creating the proyect/game. As of now (v2.6.0) the .ipynb version of HeroQuest will be deleted.
+After consideration I decided that for improving my work flow and my results I will only focus on the main idea of creating the proyect/game. As of now the .ipynb version of HeroQuest will be deleted.
 If you want to use the code in jupyter is as simple as copying the main codes to the platform.
 
 For any issues or sugestions you can contact me via discord: *(heyne_cositas / VanimaYT#8738)*
