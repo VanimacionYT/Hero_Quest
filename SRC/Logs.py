@@ -21,14 +21,14 @@ def RemoveLogs():
     clear_output()
     locale.setlocale(locale.LC_ALL, 'C')
     Date = datetime.now()
-    LogRefreshDate =  (Date.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
+    LogRefreshDate =  Date.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]")
     
     open('Log/LogPlayers.txt', 'w').close
     with open('Log/LogPlayers.txt', 'w') as PlayerLogFile:
         PlayerLogFile.write(f"{LogRefreshDate}\nWelcome to the Player Log File\n---------------------------------------")
 
     open('Log/LogGames.txt', 'w').close
-    with open('Log/LogGamess.txt', 'w') as GameLogFile:
+    with open('Log/LogGames.txt', 'w') as GameLogFile:
         GameLogFile.write(f"{LogRefreshDate}\nWelcome to the Game Log File\n-------------------------------------")
 
     open('Log/LogSystem.txt', 'w').close
@@ -56,7 +56,7 @@ def LogGames(Player1Stats,Player1Name, Player2Stats, Player2Name, ParameterSelec
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogGamesDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
-    LogGames = (f"\n{LogGamesDate}\nPlayer {Player1ID} | {Player1Name}:{Player1Stats}\nPlayer {Player2ID} | {Player2Name}:{Player2Stats}\nParameter Selection = {ParameterSelection}\nTurns [Selected/Played] = {SelectedTurns}/{PlayedTurns}\nResult:{Result}\n--------------------------------------------------")
+    LogGames = f"\n{LogGamesDate}\nPlayer {Player1ID} | {Player1Name}:{Player1Stats}\nPlayer {Player2ID} | {Player2Name}:{Player2Stats}\nParameter Selection = {ParameterSelection}\nTurns [Selected/Played] = {SelectedTurns}/{PlayedTurns}\nResult:{Result}\n--------------------------------------------------"
     #Cargamos el .excel que registra los datos, los cargamos y lo cerramos
     with open('Log/LogGames.txt', 'a') as GameLogFile:
         GameLogFile.write(LogGames)
@@ -65,7 +65,7 @@ def LogSystem(Player1Name, Player1, Player2Name, Player2, Winner, Player1ID, Pla
     # Colocamos un timestamp
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
-    LogSysDate =  (dt.strftime("%d/%m/%Y - %H:%M:%S"))
+    LogSysDate =  dt.strftime("%d/%m/%Y - %H:%M:%S")
     DataList = f"{Player1Name}, {Player1}, {Player2Name}, {Player2}, {Winner}, {LogSysDate}, {Player1ID}, {Player2ID}"
     with open('Log/LogSystem.txt', 'a') as ArchivoLogSys:
         ArchivoLogSys.write(f"{DataList}, \n")

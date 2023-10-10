@@ -14,4 +14,3 @@ while True:
         Game()
     elif GlobalState.GlobalGame == CurrentState.END:
         End()
-#Comming soon English version!

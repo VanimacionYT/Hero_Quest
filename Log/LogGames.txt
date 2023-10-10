@@ -1,2 +1,2 @@
-Bienvenido al archivo de Log Partidas
+Welcome to the Game Log File
 -------------------------------------

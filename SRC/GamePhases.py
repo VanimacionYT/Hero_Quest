@@ -146,7 +146,7 @@ def Game():
                 Defensor = "Player1"
             elif Defensor == "Player1":
                 Defensor = "Player2"
-            turnolog = ("\n<<< TURN {} | {} attacks {} >>>".format(x + 1, Attacker, Defensor))
+            turnolog = (f"\n<<< TURN {x + 1} | {Attacker} attacks {Defensor} >>>")
             print(turnolog)
             #Dependiendo de quien es el Jugador 1 (atacante) se ejecutara el .atacar de un jugador u otro
             if Attacker == "Player1":

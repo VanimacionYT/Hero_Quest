@@ -1,2 +1,2 @@
-Bienvenido al archivo de Log Personajes
+Welcome to the Player Log File
 ---------------------------------------
