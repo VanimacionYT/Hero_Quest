@@ -2,9 +2,9 @@ import locale
 import time
 from IPython.display import clear_output
 from datetime import datetime
-from SRC.Dice import Dado
-from SRC.Players import Momia, Barbaro
-from SRC.Logs import LogPartida, LogPersonajes, RemoveLogs, CheckLogs, LogSystem
+from SRC.Dice import Dice
+from SRC.Players import Player
+from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
 
@@ -12,174 +12,181 @@ from SRC.Control.Global import GlobalState
 
 
 
-def Titulo():
+def Title():
     #Titulo
     print("----------------------------")
     print("--------[HERO QUEST]--------")
-    print("----------------------------\n----------------------V2.6.0\n")
+    print("----------------------------\n----------------------V2.8.0\n")
 
     #Sistema para iniciar
-    print("Presiona 'ENTER' para empezar!")
+    print("Press 'ENTER' to start!")
     input()
 
     #Borrar lo anterior
     clear_output()
-    GlobalState.GlobalGame = CurrentState.menu
+    GlobalState.GlobalGame = CurrentState.MENU
     return
 
 def Menu():
     #Se crea un menu para elegir si jugar o borrar logs
         menu = True
         while menu == True:
-            print("<---<-MAIN MENU->--->\n\nJugar HQ: 1\t|\tRevisar Logs: 2\t\t|\tBorrar Logs: 3\t\t|\tSalir: 4\n")
-            mainmenu = input()
+            print("<---<-MAIN MENU->--->\n\nPlay HQ: 1\t|\tCheck Logs: 2\t\t|\tDelete Logs: 3\t\t|\tExit: 4\n")
+            Selection = input()
             
-            if mainmenu == "1":
+            if Selection == "1":
                 menu = False
-                GlobalState.GlobalGame = CurrentState.juego
+                GlobalState.GlobalGame = CurrentState.GAME
 
-            elif mainmenu == "2":
+            elif Selection == "2":
                 CheckLogs()
 
-            elif mainmenu == "3":
+            elif Selection == "3":
                 clear_output()
-                print("¿Estas seguro de querer borrar los logs?\nSi, Estoy seguro: 1\t|\tNo, No quiero borrarlos: 2")
-                confirmar = input()
+                print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
+                Confirmation = input()
                 
-                if confirmar == "1":
+                if Confirmation == "1":
                     RemoveLogs()
-                elif confirmar == "2":
+                elif Confirmation == "2":
                     clear_output()
                     menu = True
 
-            elif mainmenu == "4":
+            elif Selection == "4":
                 quit()
 
 def Game():
      #Mediante un if se selecciona la opcion de parametroa aleatorios o manuales
-        print("Quieres colocar parametros de personaje aleatorios o manuales?\n\nAleatorio: 1\t|\tManuales:2\n")
-        opcion = input()
+        print("What player stats selection mode do you want?\n\nRandom: 1\t|\tManual:2\n")
+        ParameterSelection = input()
 
         #Tras seleccionar se limpia la pantalla
         clear_output()
 
         #Si es aletorio se hace uso del objeto Dado() con sus respectivos metodos
-        if opcion == "1":
-            print("\tVamos a definir el nombre de la MOMIA") 
-            print("Nombre Momia")
-            NomM = input()
-            VidM = Dado.tirav()
-            AtaM = Dado.tiraa()
-            DefM = Dado.tirad()
-            Momia1 = Momia(NomM, VidM, AtaM, DefM)
+        if ParameterSelection == "1":
+            print("\tLet's Create PLAYER 1") 
+            print("PLAYER 1 Name: ")
+            Player1Name = input()
+            Player1Health = Dice.DiceHealth()
+            Player1Attack = Dice.DiceAttack()
+            Player1Defense = Dice.DiceDefense()
+            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense)
             
-            print("\n\tVamos a definir el nombre del BARBARO")  
-            print("Nombre Barbaro")
-            NomB = input()
-            VidB = Dado.tirav()
-            AtaB = Dado.tiraa()
-            DefB = Dado.tirad()
-            Barbaro1 = Barbaro(NomB, VidB, AtaB, DefB)
-        #Si es manual, el usuario por medio de imputs() selecciona los datos
-        elif opcion == "2":    
-            print("\tVamos a definir los valores de la MOMIA") 
-            print("Nombre Momia")
-            NomM = input()
-            print("Vida Momia")
-            VidM = int(input())
-            print("Ataque Momia")
-            AtaM = int(input())
-            print("Defensa Momia")
-            DefM = int(input())
-            Momia1 = Momia(NomM, VidM, AtaM, DefM)
+            print("\tLet's Create PLAYER 2") 
+            print("PLAYER 2 Name: ")
+            Player2Name = input()
+            Player2Health = Dice.DiceHealth()
+            Player2Attack = Dice.DiceAttack()
+            Player2Defense = Dice.DiceDefense()
+            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
 
-            print("\n\tVamos a definir los valores del BARBARO")  
-            print("Nombre Barbaro")
-            NomB = input()
-            print("Vida Barbaro")
-            VidB = int(input())
-            print("Ataque Barbaro")
-            AtaB = int(input())
-            print("Defensa Barbaro")
-            DefB = int(input())
-            Barbaro1 = Barbaro(NomB, VidB, AtaB, DefB)
+        #Si es manual, el usuario por medio de imputs() selecciona los datos
+        elif ParameterSelection == "2":    
+            print("\tLet's Create PLAYER 1") 
+            print("PLAYER 1 Name: ")
+            Player1Name = input()
+            print("PLAYER 1 Health: ")
+            Player1Health = int(input())
+            print("PLAYER 1 Attack: ")
+            Player1Attack = int(input())
+            print("PLAYER 1 Defense: ")
+            Player1Defense = int(input())
+            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense)
+
+            print("\tLet's Create PLAYER 2") 
+            print("PLAYER 2 Name: ")
+            Player2Name = input()
+            print("PLAYER 2 Health: ")
+            Player2Health = int(input())
+            print("PLAYER 2 Attack: ")
+            Player2Attack = int(input())
+            print("PLAYER 2 Defense: ")
+            Player2Defense = int(input())
+            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
         else:
-            print("¡ERROR!\nSelecciona una opcion valida")
+            print("¡ERROR!\nSelect a valid option")
             
         #Se borran los textos
         clear_output()
 
         #Se muestran los parametros de cada personaje y las opciones de la partida y se guardan en los logs
-        if opcion == "1":
-            print("Módo de elección de parámetros: Automático")
-        elif opcion == "2":
-            print("Módo de elección de parámetros: Manual")
-        print("\n", Momia1)
-        print("\n", Barbaro1)
-        MomiaSys = Momia1.logSys()
-        BarbaroSys = Barbaro1.logSys()
-        LogPersonajes(Momia1.nombre, Momia1.logInfo(), Barbaro1.nombre, Barbaro1.logInfo())
+        if ParameterSelection == "1":
+            print("Parameter Selection: Random")
+        elif ParameterSelection == "2":
+            print("Parameter Selection: Manual")
+        print("\n", Player1)
+        print("\n", Player2)
+        Player1LogSys = Player1.logSys()
+        Player2LogSys = Player2.logSys()
+        LogPlayers(Player1.name, Player1.logInfo(), Player2.name, Player2.logInfo())
 
         #Se indican los turnos
-        print("\n¿Cuántos turnos máximos quiere jugar?: ")
-        turnos = int(input())
+        print("\nHow many game turns do you want to play?: ")
+        GameTurns = int(input())
         #Se asigna los valores para el sistema de turnos. J1 es la momia y J2 es el barbaro.
-        Atacante = "Bárbaro"
-        Defensor = "Momia"
-        turno = 0
-        for x in range(turnos):
-            turno += 1
+        
+        if Dice.FirstPlayerTurn() == 1:
+            Attacker = "Player1"
+            Defensor = "Player2"
+        else:
+            Attacker = "Player2"
+            Defensor = "Player1"
+
+        PlayedTurn = 0
+        for x in range(GameTurns):
+            PlayedTurn += 1
             #Mediante un bucle y varios If deternminamos los turnos
             time.sleep(1) #implentamos un timesleep(x) para poder hacer que los bucles tengan pausa de x segundos.
-            if Atacante == "Bárbaro":
-                Atacante = "Momia"
-            elif Atacante == "Momia":
-                Atacante = "Bárbaro"
-            if Defensor == "Bárbaro":
-                Defensor = "Momia"
-            elif Defensor == "Momia":
-                Defensor = "Bárbaro"
-            turnolog = ("\n<<< TURNO {} | {} ataca a {} >>>".format(x + 1, Atacante, Defensor))
+            if Attacker == "Player2":
+                Attacker = "Player1"
+            elif Attacker == "Player1":
+                Attacker = "Player2"
+            if Defensor == "Player2":
+                Defensor = "Player1"
+            elif Defensor == "Player1":
+                Defensor = "Player2"
+            turnolog = ("\n<<< TURN {} | {} attacks {} >>>".format(x + 1, Attacker, Defensor))
             print(turnolog)
             #Dependiendo de quien es el Jugador 1 (atacante) se ejecutara el .atacar de un jugador u otro
-            if Atacante == "Bárbaro":
-                Numataques = Barbaro1.atacar()
-                Momia1.defender(Numataques)
-            elif Atacante == "Momia":
-                Numataques = Momia1.atacar()
-                Barbaro1.defender(Numataques)
+            if Attacker == "Player1":
+                AttackNumber = Player1.Attack()
+                Player1.Defense(AttackNumber)
+            elif Attacker == "Player2":
+                AttackNumber = Player2.Attack()
+                Player2.Defense(AttackNumber)
             #tras los ataques se revisa si los jugadores estan vivos
-            Barbaro1.estarVivo()
-            Momia1.estarVivo()
+            Player1.ItsAlive()
+            Player2.ItsAlive()
             #Dependiendo de lo que devuelva .personajeVivo() se sigue o no con el combate
-            if Barbaro1.personajeVivo == False:
-                resultado = ("El ganador del combate es la Momia {} con {} pt de vida".format(Momia1.nombre, Momia1.vida))
+            if Player1.ItsAlive() == False:
+                Result = (f"The winner is Player {Player2.PlayerID} {Player2.name}")
                 break
-            if Momia1.personajeVivo == False:
-                resultado = ("El ganador del combate es el Barbaro {} con {} pt de vida".format(Barbaro1.nombre, Barbaro1.vida))
+            if Player2.ItsAlive() == False:
+                Result = (f"The winner is Player {Player1.PlayerID} {Player1.name}")
                 break
-        if Barbaro1.personajeVivo == True and Momia1.personajeVivo == True:
-            resultado = ("El combate queda en un empate! Ambos jugadores sobreviven!")
-        print(f"\n\t{resultado}")
+        if Player1.ItsAlive() == True and Player2.ItsAlive() == True:
+            Result = ("It's a Tie! Both players survive!")
+        print(f"\n\t{Result}")
 
         #Se muestra por pantalla los resultados y se guardan los logs de la partida.        
-        ResultadoMomia = ("\n\tMOMIA:   {} queda con {} pt de vida.".format(Momia1.nombre, Momia1.vida))    
-        ResultadoBarbaro = ("\n\tBARBARO: {} queda con {} pt de vida.".format(Barbaro1.nombre, Barbaro1.vida))
-        ResultadoPartida = (ResultadoMomia + ResultadoBarbaro)
-        print(ResultadoPartida)
-        LogPartida(Momia1.logInfo(),Momia1.nombre, Barbaro1.logInfo(),Barbaro1.nombre, opcion, turno, turnos, ResultadoPartida)
-        LogSystem(Momia1.nombre, MomiaSys, Barbaro1.nombre, BarbaroSys, resultado)
-        GlobalState.GlobalGame = CurrentState.fin
+        Player1Result = (f"\n\tPlayer1:   {Player1.name} stays at {Player1.health} health pt.")
+        Player2Result = (f"\n\tPlayer2:   {Player2.name} stays at {Player2.health} health pt.")
+        GameResult = (Player1Result + Player2Result)
+        print(GameResult)
+        LogGames(Player1.logInfo(), Player1.name, Player2.logInfo(), Player2.name, ParameterSelection, PlayedTurn, GameTurns, GameResult, Player1.PlayerID, Player2.PlayerID)
+        LogSystem(Player1.name, Player1LogSys, Player2.name, Player2LogSys, Result, Player1.PlayerID, Player2.PlayerID)
+        GlobalState.GlobalGame = CurrentState.END
 
 def End():
-    print("\n-- Volver a jugar: 1\t|\tVolver al menu: 2\t|\tSalir: 3 --\n")
+    print("\n-- Play Again: 1\t|\tReturn to Menu: 2\t|\tExit: 3 --\n")
     GameOver = input()
     while True:
         if GameOver == "1":
-            GlobalState.GlobalGame = CurrentState.juego
+            GlobalState.GlobalGame = CurrentState.GAME
             break
         if GameOver == "2":
-            GlobalState.GlobalGame = CurrentState.menu
+            GlobalState.GlobalGame = CurrentState.MENU
             break
         if GameOver== "3":
             quit()

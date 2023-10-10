@@ -13,61 +13,60 @@ def CheckLogs():
         for x in range(lines):
             Linea = ArchivoLogSys.readline()
             Linea = Linea.split(", ")
-            print(f"\nPartida {x + 1} Fecha >>> {Linea[9]}\nMomia {Linea[0]}:\n\tVida >>>>> {Linea[1]}\n\tAtaque >>> {Linea[2]}\n\tDefensa >> {Linea[3]}\nBárbaro {Linea[4]}:\n\tVida >>>>> {Linea[5]}\n\tAtaque >>> {Linea[6]}\n\tDefensa >> {Linea[7]}\nGanador: {Linea[8]}\n--------------------------------------------------")
+            print(f"\nGame {x + 1} Date  >>> {Linea[9]}\nPlayer {Linea[10]} {Linea[0]}:\n\tHealth  >> {Linea[1]}\n\tAttack  >> {Linea[2]}\n\tDefense >> {Linea[3]}\nPlayer {Linea[11]} {Linea[4]}:\n\tHealth  >> {Linea[5]}\n\tAttack  >> {Linea[6]}\n\tDefense >> {Linea[7]}\nWinner: {Linea[8]}\n--------------------------------------------------")
 
 
 def RemoveLogs():
     #Si elige borarlos se reescriben los logs con un mensaje que indica la fecha de la limpieza y se limpia la consola.
     clear_output()
     locale.setlocale(locale.LC_ALL, 'C')
-    dt = datetime.now()
-    LogRefreshDate =  (dt.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
+    Date = datetime.now()
+    LogRefreshDate =  (Date.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]"))
     
-    open('Log/LogPersonajes.txt', 'w').close
-    with open('Log/LogPersonajes.txt', 'w') as ArchivoLogPE:
-        ArchivoLogPE.write(f"{LogRefreshDate}\nBienvenido al archivo de Log Personajes\n---------------------------------------")
+    open('Log/LogPlayers.txt', 'w').close
+    with open('Log/LogPlayers.txt', 'w') as PlayerLogFile:
+        PlayerLogFile.write(f"{LogRefreshDate}\nWelcome to the Player Log File\n---------------------------------------")
 
-    open('Log/LogPartidas.txt', 'w').close
-    with open('Log/LogPartidas.txt', 'w') as ArchivoLogPA:
-        ArchivoLogPA.write(f"{LogRefreshDate}\nBienvenido al archivo de Log Partidas\n-------------------------------------")
+    open('Log/LogGames.txt', 'w').close
+    with open('Log/LogGamess.txt', 'w') as GameLogFile:
+        GameLogFile.write(f"{LogRefreshDate}\nWelcome to the Game Log File\n-------------------------------------")
 
     open('Log/LogSystem.txt', 'w').close
     
-    print("¡Logs Reiniciados!")
+    print("¡Logs Reseted!")
 
 #Creamos Funciones para almacenar los Logs de la partida y los personajes.
-def LogPersonajes(Personaje1, Atributos1, Personaje2, Atributos2):
+def LogPlayers(Player1, Player1Stats, Player2, Player2Stats):
     # Colocamos un timestamp
     locale.setlocale(locale.LC_ALL, 'C')
-    dt = datetime.now()
-    LogPeDate =  (dt.strftime("[-- Characters Log Created At: %d/%m/%Y - %H:%M:%S --]"))
-    LogPe = (f"\n{LogPeDate}\n{Personaje1} con los atributos: {Atributos1}\n{Personaje2} con los atributos {Atributos2}\n--------------------------------------------------------")
-    with open('Log/LogPersonajes.txt', 'a') as ArchivoLogPE:
-        ArchivoLogPE.write(LogPe)
+    Date = datetime.now()
+    LogPlayersDate =  (Date.strftime("[-- Characters Log Created At: %d/%m/%Y - %H:%M:%S --]"))
+    LogPlayers = (f"\n{LogPlayersDate}\n{Player1} with atributes: {Player1Stats}\n{Player2} with atributes {Player2Stats}\n--------------------------------------------------------")
+    with open('Log/LogPlayers.txt', 'a') as PlayerLogFile:
+        PlayerLogFile.write(LogPlayers)
     
-def LogPartida(Personaje1,Personaje1Name, Personaje2, Personaje2Name,opcion, TurnosElejidos, TurnosJugados, Resultado):
+def LogGames(Player1Stats,Player1Name, Player2Stats, Player2Name, ParameterSelection, SelectedTurns, PlayedTurns, Result, Player1ID, Player2ID):
     #Comprobamos el metodo de asignacion de valores.
-    Metodo = ""
-    if opcion == "1":
-        Metodo = "Automático"
-    elif opcion == "2":
-        Metodo = "Manual"
+    if ParameterSelection == "1":
+        ParameterSelection = "Random"
+    elif ParameterSelection == "2":
+        ParameterSelection = "Manual"
         
     # Colocamos un timestamp
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
-    LogPaDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
-    LogPa = (f"\n{LogPaDate}\nPersonaje 1 | {Personaje1Name}:{Personaje1}\nPersonaje 2 | {Personaje2Name}:{Personaje2}\nMétodo de elección = {Metodo}\nTurnos [Elejidos/Jugados] = {TurnosElejidos}/{TurnosJugados}\nResultado:{Resultado}\n--------------------------------------------------")
+    LogGamesDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
+    LogGames = (f"\n{LogGamesDate}\nPlayer {Player1ID} | {Player1Name}:{Player1Stats}\nPlayer {Player2ID} | {Player2Name}:{Player2Stats}\nParameter Selection = {ParameterSelection}\nTurns [Selected/Played] = {SelectedTurns}/{PlayedTurns}\nResult:{Result}\n--------------------------------------------------")
     #Cargamos el .excel que registra los datos, los cargamos y lo cerramos
-    with open('Log/LogPartidas.txt', 'a') as ArchivoLogPA:
-        ArchivoLogPA.write(LogPa)
+    with open('Log/LogGames.txt', 'a') as GameLogFile:
+        GameLogFile.write(LogGames)
 
-def LogSystem(NombreMomia, Momia, NombreBarbaro, Barbaro, Ganador):
+def LogSystem(Player1Name, Player1, Player2Name, Player2, Winner, Player1ID, Player2ID):
     # Colocamos un timestamp
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogSysDate =  (dt.strftime("%d/%m/%Y - %H:%M:%S"))
-    ListaDatos = f"{NombreMomia}, {Momia}, {NombreMomia}, {Barbaro}, {Ganador}, {LogSysDate}"
+    DataList = f"{Player1Name}, {Player1}, {Player2Name}, {Player2}, {Winner}, {LogSysDate}, {Player1ID}, {Player2ID}"
     with open('Log/LogSystem.txt', 'a') as ArchivoLogSys:
-        ArchivoLogSys.write(f"{ListaDatos}\n")
+        ArchivoLogSys.write(f"{DataList}, \n")
 

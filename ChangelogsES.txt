@@ -6,6 +6,14 @@ Este juego no es más que un mero proyecto académico.
 
 En este documento de texto redactaré los cambios que se reporten en el juego.
 
+__[Changelog 2.8.0]__ 10/10/2023
+-Se añaden las siguientes funciones:
+    -Codigo cambaido al ingles.
+    -Variables y codigo reescrito para mayor legibilidad.
+    -Ahora el atacante de inicio es aleatorio.
+    -Sistema de turnos mas claro.
+
+__[Changelog 2.7.0]__ 08/10/2023
 -Se añaden las siguientes funciones:
     -Se añade una opcion para revisar todos los logs desde el menu del juego.
     -Optimización del sistema de logs.

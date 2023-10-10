@@ -6,6 +6,13 @@ This game is nothing more than a mere academic project.
 
 In this text document I will write the changes that are reported in the game.
 
+__[Changelog 2.8.0]__ 10/10/2023
+-The following functions are added:
+    -Full change to English.
+    -Made code an variables more readable.
+    -Now the starter of the game is random.
+    -More readable turn system.
+
 __[Changelog 2.7.0]__ 08/10/2023
 -The following functions are added:
     -Added a "check logs" button in menu that shows all logs.

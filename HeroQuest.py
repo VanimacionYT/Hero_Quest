@@ -1,17 +1,17 @@
 #Codigo del Juego
 
 #Importamos librerias
-from SRC.GamePhases import Titulo, Menu, Game, End
+from SRC.GamePhases import Title, Menu, Game, End
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState       
 
 while True:
-    if GlobalState.GlobalGame == CurrentState.titulo:
-        Titulo()
-    elif GlobalState.GlobalGame == CurrentState.menu:
+    if GlobalState.GlobalGame == CurrentState.TITLE:
+        Title()
+    elif GlobalState.GlobalGame == CurrentState.MENU:
         Menu()
-    elif GlobalState.GlobalGame == CurrentState.juego:
+    elif GlobalState.GlobalGame == CurrentState.GAME:
         Game()
-    elif GlobalState.GlobalGame == CurrentState.fin:
+    elif GlobalState.GlobalGame == CurrentState.END:
         End()
 #Comming soon English version!

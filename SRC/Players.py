@@ -1,187 +1,139 @@
-from SRC.Dice import Dado
+from SRC.Dice import Dice
 
 #Creamnos la clase Personaje
-class Personaje:
+class Character:
 
     #Definimos atributos
-    __nombre = ""           #nombre del personaje
-    __vida = 0              #numero de puntos de vida, baja -1 por ataque efectuado exitosamente
-    __ataque = 0            #numero de lanzamientos de dado para atacar
-    __defensa = 0           #numero de tiradas de dado para defender
-    personajeVivo = True    #indica si el personaje sigue vivo
+    __name = ""           #nombre del personaje
+    __health = 0              #numero de puntos de vida, baja -1 por ataque efectuado exitosamente
+    __attack = 0            #numero de lanzamientos de dado para atacar
+    __defense = 0           #numero de tiradas de dado para defender
+    itsAlive = True    #indica si el personaje sigue vivo
     
     #Constructor
-    def __init__(self, nombre, vida, ataque, defensa):
-        self.__nombre = nombre
-        self.__vida = vida
-        self.__ataque = ataque
-        self.__defensa = defensa
-        print("Personaje {} creado!".format(self.__nombre))
+    def __init__(self, name, health, attack, defense):
+        self.__name = name
+        self.__health = health
+        self.__attack = attack
+        self.__defense = defense
+        print(f"Player {self.__name} created!")
     
     #String. Define los atributos del personaje
     def __str__(self):
-        return "Personaje {}:\n Vida  \t > {} pt\n Ataque  > {} pt\n Defensa > {} pt".format(self.__nombre, self.__vida, self.__ataque, self.__defensa)
+        return "Player {}:\n Health  > {} pt\n Attack  > {} pt\n Defense > {} pt".format(self.__name, self.__health, self.__attack, self.__defense)
     
     #Metodo guardado Log personaje
     def logInfo(self):
-        return "\n- Vida    > {} pt\n- Ataque  > {} pt\n- Defensa > {} pt".format(self.__vida, self.__ataque, self.__defensa)
+        return "\n- Health    > {} pt\n- Atack  > {} pt\n- Defense > {} pt".format(self.__health, self.__attack, self.__defense)
     
     #Metodo guardado log sys
     def logSys(self):
-        return f"{self.__vida}, {self.__ataque}, {self.__defensa}"
+        return f"{self.__health}, {self.__attack}, {self.__defense}"
     
     #Metodo para verificar el estado del personaje. En caso de tener vida positiva el estado sera "vivo", en caso de vida negativa o cero el estado será "muerto".
-    def estarVivo(self):
-        if self.__vida > 0:
-            self.__personajeVivo = True
-        elif self.__vida <= 0:
-            self.personajeVivo = False
-        return self.personajeVivo
+    def ItsAlive(self):
+        if self.__health > 0:
+            self.itsAlive = True
+        elif self.__health <= 0:
+            self.itsAlive = False
+        return self.itsAlive
      
     #Metodo para atacar. Se lanza un dado virtual de 6 caras x numero de veces. Si el numero es mayor a 3 se asigna 1 punto de ataque esa ronda. Acumulable.
-    def atacar(self):
-        numataques = 0
-        for x in range(self.__ataque):
-            Lanzamiento = Dado.tira()
-            if Lanzamiento > 3:
-                numataques += 1
+    def Attack(self):
+        AttackNumber = 0
+        for x in range(self.__attack):
+            Throw = Dice.GlobalDice()
+            if Throw > 3:
+                AttackNumber += 1
             x += 1
-        return numataques
+        return AttackNumber
     
     #Definimos Getters
     @property
-    def nombre(self):
-        return self.__nombre
+    def name(self):
+        return self.__name
     @property
-    def vida(self):
-        return self.__vida   
+    def health(self):
+        return self.__health   
     @property
-    def ataque(self):
-        return self.__ataque    
+    def attack(self):
+        return self.__attack    
     @property
-    def defensa(self):
-        return self.__defensa
+    def defense(self):
+        return self.__defense
     
     #Definimos Setters
-    @nombre.setter
-    def nombre(self, nuevo):
-        self.__nombre = nuevo       
-    @vida.setter
-    def vida(self, nuevo):
-        self.__vida = nuevo        
-    @ataque.setter
-    def ataque(self, nuevo):
-        self.__ataque = nuevo       
-    @defensa.setter
-    def defensa(self, nuevo):
-        self.__defensa = nuevo
+    @name.setter
+    def name(self, new):
+        self.__name = new       
+    @health.setter
+    def health(self, new):
+        self.__health = new        
+    @attack.setter
+    def attack(self, new):
+        self.__attack = new       
+    @defense.setter
+    def defense(self, new):
+        self.__defense = new
     
 #Creamos la clase heredada de Personajes llamada momia        
-class Momia(Personaje):
+class Player(Character):
     
     #Constructor
-    def __init__(self, nombre_momia, vida_momia, ataque_momia, defensa_momia):
-        super().__init__(nombre_momia, vida_momia, ataque_momia, defensa_momia)
+    def __init__(self, PlayerID, name_player, health_player, attack_player, defense_player):
+        super().__init__(name_player, health_player, attack_player, defense_player)
+        self.__PlayerID = PlayerID
                
     #Definimos Getters
     @property
-    def nombre_momia(self):
-        return self.nombre_momia   
+    def name_player(self):
+        return self.name_player   
     @property
-    def vida_momia(self):
-        return self.vida_momia   
+    def health_player(self):
+        return self.health_player   
     @property
-    def ataque_momia(self):
-        return self.ataque_momia   
+    def attack_player(self):
+        return self.attack_player   
     @property
-    def defensa_momia(self):
-        return self.defensa_momia
+    def defense_player(self):
+        return self.defense_player
+    @property
+    def PlayerID(self):
+        return self.__PlayerID
     
     #Definimos Setters
-    @nombre_momia.setter
-    def nombre_momia(self, nuevo):
-        nombre_momia = nuevo       
-    @vida_momia.setter
-    def vida_momia(self, nuevo):
-        vida_momia = nuevo      
-    @ataque_momia.setter
-    def ataque_momia(self, nuevo):
-        ataque_momia = nuevo    
-    @defensa_momia.setter
-    def defensa_momia(self, nuevo):
-        defensa_momia = nuevo
+    @name_player.setter
+    def name_player(self, new):
+        name_player = new       
+    @health_player.setter
+    def health_player(self, new):
+        health_player = new      
+    @attack_player.setter
+    def attack_player(self, new):
+        attack_player = new    
+    @defense_player.setter
+    def defense_player(self, new):
+        defense_player = new
+    @PlayerID.setter
+    def PlayerID(self, new):
+        self.__PlayerID = new
  
     #Metodo para defender. Se tira un dado de 6 caras vitrual x numero de veces. Si sale 6 gana un punto de defensa esa ronda. (Acumulable)
-    def defender(self, Numataques):
-        Numdefensas = 0
-        for x in range(self.defensa):
-            Lanzamiento = Dado.tira()
-            if Lanzamiento == 6:
-                Numdefensas += 1
+    def Defense(self, AttackNumber):
+        DefenseNumber = 0
+        for x in range(self.defense):
+            Throw = Dice.GlobalDice()
+            if Throw == 6:
+                DefenseNumber += 1
         x += 1
         
         #Comparamos si las defensas superan, igualan o son menores que los ataques a defender
-        if Numataques <= Numdefensas:
-            print("BLOQUEADO: La momia {} ha defendido los ataques y se queda con {} pt de vida".format(self.nombre, self.vida))
+        if AttackNumber <= DefenseNumber:
+            print(f"[BLOCKED] Player {self.PlayerID} {self.name} blocked the attacks and is left with {self.health} health pt")
             #Si logra defender, no pierde vida
-        elif Numataques > Numdefensas:
-            Numimpactos = Numataques - Numdefensas
-            nueva_vida_momia = self.vida - Numimpactos
-            self.vida = nueva_vida_momia
-            print("IMPACTADO: La momia {} NO ha defendido {} ataques y se queda con {} pt de vida".format(self.nombre, Numimpactos, self.vida))
+        elif AttackNumber > DefenseNumber:
+            StrikeNumber = AttackNumber - DefenseNumber
+            NewPlayerHealth = self.health - StrikeNumber
+            self.health = NewPlayerHealth
+            print(f"[HIT]\t  Player {self.PlayerID} {self.name} didn't block {StrikeNumber} attacks and is left with {self.health} health pt")
             #Si no logra defender, pierde los puntos de vida equivalentes a los ataques sin defender
-      
-#Creamos la clase heredada de Personajes llamada barbaro        
-class Barbaro(Personaje):
-    
-    #Constructor
-    def __init__(self, nombre_barbaro, vida_barbaro, ataque_barbaro, defensa_barbaro):
-        super().__init__(nombre_barbaro, vida_barbaro, ataque_barbaro, defensa_barbaro)
-        
-    #Definimos Getters
-    @property
-    def nombre_barbaro(self):
-        return self.nombre_barbaro   
-    @property
-    def vida_barbaro(self):
-        return self.vida_barbaro    
-    @property
-    def ataque_barbaro(self):
-        return self.ataque_barbaro    
-    @property
-    def defensa_barbaro(self):
-        return self.defensa_barbaro
-    
-    #Definimos Setters
-    @nombre_barbaro.setter
-    def nombre_barbaro(self, nuevo):
-        nombre_barbaro = nuevo        
-    @vida_barbaro.setter
-    def vida_barbaro(self, nuevo):
-        vida_barbaro = nuevo       
-    @ataque_barbaro.setter
-    def ataque_barbaro(self, nuevo):
-        ataque_barbaro = nuevo      
-    @defensa_barbaro.setter
-    def defensa_barbaro(self, nuevo):
-        defensa_barbaro = nuevo
-        
-    #Metodo para defender. Se tira un dado de 6 caras vitrual x numero de veces. Si sale 6 gana un punto de defensa esa ronda. (Acumulable)
-    def defender(self, Numataques):
-        Numdefensas = 0
-        for x in range(self.defensa):
-            Lanzamiento = Dado.tira()
-            if Lanzamiento == 6:
-                Numdefensas += 1
-        x += 1
-        
-        #Comparamos si las defensas superan, igualan o son menores que los ataques a defender
-        if Numataques <= Numdefensas:
-            print("BLOQUEADO: El barbaro {} ha defendido los ataques y se queda con {} pt de vida".format(self.nombre, self.vida))
-            #Si logra defender, no pierde vida   
-        elif Numataques > Numdefensas:
-            Numimpactos = Numataques - Numdefensas
-            nueva_vida_barbaro = self.vida - Numimpactos
-            self.vida = nueva_vida_barbaro
-            print("IMPACTADO: El barbaro {} NO ha defendido {} ataques y se queda con {} pt de vida".format(self.nombre, Numimpactos, self.vida))
-            #Si no logra defender, pierde los puntos de vida equivalentes a los ataques sin defender  
