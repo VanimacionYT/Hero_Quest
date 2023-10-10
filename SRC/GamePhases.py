@@ -151,10 +151,10 @@ def Game():
             #Dependiendo de quien es el Jugador 1 (atacante) se ejecutara el .atacar de un jugador u otro
             if Attacker == "Player1":
                 AttackNumber = Player1.Attack()
-                Player1.Defense(AttackNumber)
+                Player2.Defense(AttackNumber)
             elif Attacker == "Player2":
                 AttackNumber = Player2.Attack()
-                Player2.Defense(AttackNumber)
+                Player1.Defense(AttackNumber)
             #tras los ataques se revisa si los jugadores estan vivos
             Player1.ItsAlive()
             Player2.ItsAlive()

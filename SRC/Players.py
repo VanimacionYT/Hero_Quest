@@ -20,11 +20,11 @@ class Character:
     
     #String. Define los atributos del personaje
     def __str__(self):
-        return "Player {}:\n Health  > {} pt\n Attack  > {} pt\n Defense > {} pt".format(self.__name, self.__health, self.__attack, self.__defense)
+        return f"Player {self.name}:\n Health  > {self.__health} pt\n Attack  > {self.__attack} pt\n Defense > {self.__defense} pt"
     
     #Metodo guardado Log personaje
     def logInfo(self):
-        return "\n- Health    > {} pt\n- Atack  > {} pt\n- Defense > {} pt".format(self.__health, self.__attack, self.__defense)
+        return f"\n- Health    > {self.__health} pt\n- Atack  > {self.__attack} pt\n- Defense > {self.__defense} pt"
     
     #Metodo guardado log sys
     def logSys(self):
