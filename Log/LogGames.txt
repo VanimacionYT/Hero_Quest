@@ -1,2 +1,17 @@
 Welcome to the Game Log File
 -------------------------------------
+[-- Game Log Created At: 11/10/2023 - 16:00:36 --]
+Player 1 | Mandingo:
+- Health    > -3 pt
+- Atack  > 10 pt
+- Defense > 2 pt
+Player 2 | Falopio:
+- Health    > 3 pt
+- Atack  > 7 pt
+- Defense > 5 pt
+Parameter Selection = Random
+Turns [Selected/Played] = 4/10
+Result:
+	Player1:   Mandingo stays at -3 health pt.
+	Player2:   Falopio stays at 3 health pt.
+--------------------------------------------------

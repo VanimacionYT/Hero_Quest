@@ -27,3 +27,9 @@ class Dice():
         DiceFaces = 2
         Dice = (random.randint(1,DiceFaces))
         return Dice
+    
+    def SetDices():
+        pass
+    
+    def ResetDices():
+        pass

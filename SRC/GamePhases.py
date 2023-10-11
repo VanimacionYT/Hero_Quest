@@ -2,7 +2,7 @@ import locale
 import time
 from IPython.display import clear_output
 from datetime import datetime
-from SRC.Dice import Dice
+from SRC.Dice import Dice, SetDices, ResetDices
 from SRC.Players import Player
 from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
@@ -31,7 +31,7 @@ def Menu():
     #Se crea un menu para elegir si jugar o borrar logs
         menu = True
         while menu == True:
-            print("<---<-MAIN MENU->--->\n\nPlay HQ: 1\t|\tCheck Logs: 2\t\t|\tDelete Logs: 3\t\t|\tExit: 4\n")
+            print("<---<-MAIN MENU->--->\n\nPlay HQ: 1\t|\tCheck Logs: 2\t|\tDelete Logs: 3\t\t|\tSet Random Values: 4\t|\tExit: 5\n")
             Selection = input()
             
             if Selection == "1":
@@ -51,8 +51,13 @@ def Menu():
                 elif Confirmation == "2":
                     clear_output()
                     menu = True
-
             elif Selection == "4":
+                SetDices()
+
+            elif Selection == "5":
+                ResetDices()
+
+            elif Selection == "6":
                 quit()
 
 def Game():
