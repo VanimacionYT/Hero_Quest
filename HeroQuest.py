@@ -1,6 +1,3 @@
-#Codigo del Juego
-
-#Importamos librerias
 from SRC.GamePhases import Title, Menu, Game, End
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState       
