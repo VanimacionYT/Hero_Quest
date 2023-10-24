@@ -1,4 +1,5 @@
 import random
+from IPython.display import clear_output
 
 class Dice():
     def GlobalDice():
@@ -30,4 +31,7 @@ class Dice():
         pass
     
     def ResetDices():
-        pass
+        clear_output()
+        open('Log/LogDices.txt', 'w').close
+        with open('Log/LogDicess.txt', 'w') as DiceLog:
+            DiceLog.write("6.15.10.10.2")
