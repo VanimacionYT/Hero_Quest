@@ -1,13 +1,14 @@
 import time
 from IPython.display import clear_output
 from datetime import datetime
-from SRC.Dice import Dice, SetDices, ResetDices
+from SRC.Dice import Dice, DiceInitiator
 from SRC.Players import Player
 from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
 
 def Title():
+    DiceInitiator()
     print("----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------V2.8.0\nPress 'ENTER' to start!")
     input()
     clear_output()
@@ -34,10 +35,10 @@ def Menu():
                 clear_output()
                 menu = True
         elif Selection == "4":
-            SetDices()
+            Dice.SetDices()
 
         elif Selection == "5":
-            ResetDices()
+            Dice.ResetDices()
 
         elif Selection == "6":
             quit()
