@@ -12,8 +12,7 @@ As of now it includes:
 * A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz"
 
 # Python Version 
-As of right now using python version **3.11.0** for compatibility reasons. Subject to the [Auto-Py-To-Exe](https://github.com/brentvollebregt/auto-py-to-exe) standarts.
-Planing to port to python version **3.12.0** (newewst)
+As of right now using python version **3.12.0** (Newest)
 
 # Dependencies
 As of now using the following libraries:
@@ -21,9 +20,9 @@ As of now using the following libraries:
 * Datetime
 * Locale
 * Time [Link](https://pypi.org/project/TIME-python/)
-      Pip instalation ```pip install TIME-python```
+      - Pip instalation ```pip install TIME-python```
 * Enum [Link](https://pypi.org/project/enum/)
-      Pip instalation ```pip install enum```
+      - Pip instalation ```pip install enum```
 
 # How to modificate
 Keep in mind i'm new, I don't know 100% how to use, manage or assist on GitHub.
