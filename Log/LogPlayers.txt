@@ -1,12 +1,2 @@
 Welcome to the Player Log File
 ---------------------------------------
-[-- Characters Log Created At: 11/10/2023 - 16:00:31 --]
-Mandingo with atributes: 
-- Health    > 7 pt
-- Atack  > 10 pt
-- Defense > 2 pt
-Falopio with atributes 
-- Health    > 13 pt
-- Atack  > 7 pt
-- Defense > 5 pt
---------------------------------------------------------
