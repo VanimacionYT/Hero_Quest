@@ -1,14 +1,13 @@
 import time
 from IPython.display import clear_output
-from datetime import datetime
-from SRC.Dice import Dice, DiceInitiator
+from SRC.Dice import Dice
 from SRC.Players import Player
 from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
 
 def Title():
-    DiceInitiator()
+    Dice.DiceInitiator(Dice)
     print("----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------V2.8.0\nPress 'ENTER' to start!")
     input()
     clear_output()
@@ -51,16 +50,16 @@ def Game():
         print("\tLet's Create PLAYER 1") 
         print("PLAYER 1 Name: ")
         Player1Name = input()
-        Player1Health = Dice.DiceHealth()
-        Player1Attack = Dice.DiceAttack()
-        Player1Defense = Dice.DiceDefense()
+        Player1Health = Dice.DiceHealth(Dice)
+        Player1Attack = Dice.DiceAttack(Dice)
+        Player1Defense = Dice.DiceDefense(Dice)
         Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense) 
         print("\tLet's Create PLAYER 2") 
         print("PLAYER 2 Name: ")
         Player2Name = input()
-        Player2Health = Dice.DiceHealth()
-        Player2Attack = Dice.DiceAttack()
-        Player2Defense = Dice.DiceDefense()
+        Player2Health = Dice.DiceHealth(Dice)
+        Player2Attack = Dice.DiceAttack(Dice)
+        Player2Defense = Dice.DiceDefense(Dice)
         Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
 
     elif ParameterSelection == "2":    

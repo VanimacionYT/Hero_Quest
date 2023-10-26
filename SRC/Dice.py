@@ -1,49 +1,46 @@
 import random
 from IPython.display import clear_output
 
-GlobalDiceMinFaces = 0
-GlobalDiceMaxFaces = 0
-HealthDiceMinFaces = 0
-HealthDiceMaxFaces = 0
-AttackDiceMinFaces = 0
-AttackDiceMaxFaces = 0
-DefenseDiceMinFaces = 0
-DefenseDiceMaxFaces = 0
-
-def DiceInitiator():
-    with open('Log/LogDices.txt', 'r') as DiceLog:
-        DiceIndividualSettings = DiceLog.readline().split(".")
-        DIGlobalDiceMinFaces = int(DiceIndividualSettings[0].split("-")[0])
-        DIGlobalDiceMaxFaces = int(DiceIndividualSettings[0].split("-")[1])
-        DIHealthDiceMinFaces = int(DiceIndividualSettings[1].split("-")[0])
-        DIHealthDiceMaxFaces = int(DiceIndividualSettings[1].split("-")[1])
-        DIAttackDiceMinFaces = int(DiceIndividualSettings[2].split("-")[0])
-        DIAttackDiceMaxFaces = int(DiceIndividualSettings[2].split("-")[1])
-        DIDefenseDiceMinFaces = int(DiceIndividualSettings[3].split("-")[0])
-        DIDefenseDiceMaxFaces = int(DiceIndividualSettings[3].split("-")[1])
-        return DIGlobalDiceMinFaces,DIGlobalDiceMaxFaces,DIHealthDiceMinFaces,DIHealthDiceMaxFaces,DIAttackDiceMinFaces,DIAttackDiceMaxFaces,DIDefenseDiceMinFaces,DIDefenseDiceMaxFaces
-    
-    
-
 class Dice():
-    def GlobalDice():
+    __DIGlobalDiceMinFaces = 0
+    __DIGlobalDiceMaxFaces = 0
+    __DIHealthDiceMinFaces = 0
+    __DIHealthDiceMaxFaces = 0
+    __DIAttackDiceMinFaces = 0
+    __DIAttackDiceMaxFaces = 0
+    __DIDefenseDiceMinFaces = 0
+    __DIDefenseDiceMaxFaces = 0
+    
+    def DiceInitiator(self):
+        with open('Log/LogDices.txt', 'r') as DiceLog:
+            DiceIndividualSettings = DiceLog.readline().split(".")
+            self.__DIGlobalDiceMinFaces = int(DiceIndividualSettings[0].split("-")[0])
+            self.__DIGlobalDiceMaxFaces = int(DiceIndividualSettings[0].split("-")[1])
+            self.__DIHealthDiceMinFaces = int(DiceIndividualSettings[1].split("-")[0])
+            self.__DIHealthDiceMaxFaces = int(DiceIndividualSettings[1].split("-")[1])
+            self.__DIAttackDiceMinFaces = int(DiceIndividualSettings[2].split("-")[0])
+            self.__DIAttackDiceMaxFaces = int(DiceIndividualSettings[2].split("-")[1])
+            self.__DIDefenseDiceMinFaces = int(DiceIndividualSettings[3].split("-")[0])
+            self.__DIDefenseDiceMaxFaces = int(DiceIndividualSettings[3].split("-")[1])
+
+    def GlobalDice(self):
         #DiceFaces = 6
-        Dice = (random.randint(DiceInitiator()[0], DiceInitiator()[1]))
+        Dice = (random.randint(self.__DIGlobalDiceMinFaces, self.__DIGlobalDiceMaxFaces))
         return Dice
     
-    def DiceHealth():
+    def DiceHealth(self):
         #DiceFaces = 15
-        Dice = (random.randint(DiceInitiator()[2], DiceInitiator()[3]))
+        Dice = (random.randint(self.__DIHealthDiceMinFaces, self.__DIHealthDiceMaxFaces))
         return Dice
     
-    def DiceAttack():
+    def DiceAttack(self):
         #DiceFaces = 10
-        Dice = (random.randint(DiceInitiator()[4], DiceInitiator()[5]))
+        Dice = (random.randint(self.__DIAttackDiceMinFaces, self.__DIAttackDiceMaxFaces))
         return Dice
     
-    def DiceDefense():
+    def DiceDefense(self):
         #DiceFaces = 10
-        Dice = (random.randint(DiceInitiator()[6], DiceInitiator()[7]))
+        Dice = (random.randint(self.__DIDefenseDiceMinFaces, self.__DIDefenseDiceMaxFaces))
         return Dice
     
     def FirstPlayerTurn():

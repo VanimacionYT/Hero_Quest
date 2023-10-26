@@ -33,7 +33,7 @@ class Character:
     def Attack(self):
         AttackNumber = 0
         for x in range(self.__attack):
-            Throw = Dice.GlobalDice()
+            Throw = Dice.GlobalDice(Dice)
             if Throw > 3:
                 AttackNumber += 1
             x += 1
@@ -106,7 +106,7 @@ class Player(Character):
     def Defense(self, AttackNumber):
         DefenseNumber = 0
         for x in range(self.defense):
-            Throw = Dice.GlobalDice()
+            Throw = Dice.GlobalDice(Dice)
             if Throw == 6:
                 DefenseNumber += 1
         x += 1
