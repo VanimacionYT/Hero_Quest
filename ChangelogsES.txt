@@ -6,6 +6,11 @@ Este juego no es más que un mero proyecto académico.
 
 En este documento de texto redactaré los cambios que se reporten en el juego.
 
+__[Changelog 2.9.0]__ 26/10/2023
+-Se añaden las siguientes funciones:
+    -Nuevo metodo para almacenar y gestionar los valores minimos y maximos de los dados.
+    -Opcion para modificar los valores de los dados in game.
+
 __[Changelog 2.8.0]__ 10/10/2023
 -Se añaden las siguientes funciones:
     -Codigo cambaido al ingles.

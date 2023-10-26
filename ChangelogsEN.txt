@@ -6,6 +6,11 @@ This game is nothing more than a mere academic project.
 
 In this text document I will write the changes that are reported in the game.
 
+__[Changelog 2.9.0]__ 26/10/2023
+-The following functions are added:
+    -New storing and managing method for minimum and maximum dice values.
+    -Option to modify dice values in game.
+
 __[Changelog 2.8.0]__ 10/10/2023
 -The following functions are added:
     -Full change to English.
