@@ -5,11 +5,12 @@
 
 This project/game is my first serius in depth game made in python following the instructions and information that I gather from my Python academy [Tokio School](https://www.tokioschool.com).
 As of now it includes:
-* A rough *main menu* with 2 options using *while and if* commands.
-* A *virtual dice system* using "random" library.
-* A *character system* using objects, clases, getters, setters.
-* A Log system that captures the events and registers characters informarion and game results in 2 diferent text files using *file management*
-* A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz"
+* A *main menu* with various options using *Enum Library* and *Controlong Files*.
+* A *virtual dice system* using "random" library and modifyable values to the minimal and maximal values usind *Enum Library* and *Controlong Files*.
+* A *character system* using objects, clases, getters, setters and all other OOP concepts.
+* A Log system that captures the events and registers characters informarion and game results in 3 diferent text files using *file management* and being able to check those while in the game using the menu.
+* A *time event capturer* using the library "datetime". Working on implementing *Time zone management* and features with "pytz".
+* A class working with *Enum Library* and *Controlong Files* to control the various phases of the game.
 
 # Python Version 
 As of right now using python version **3.12.0** (Newest)
@@ -34,12 +35,14 @@ For any issues or sugestions you can contact me via discord: *(heyne_cositas / V
 
 ## What does this project contain?
 
-* This project contains inside the SRC folder the key files for the program to work
-* HeroQuest.py is the main source for the .exe version. and the manager of all the files in SRC/.
+* This project contains inside the SRC folder the key files for the program to work and a LOG folder to store data and a Control folder to control the global and current events and values.
+* HeroQuest.py is the main source for the .exe version. and the manager of all the files in SRC/. If you want to try the game out inside a code editor you must run this file in order for everythn to work.
 
 Also the Log folder is the one where the logs are stores, such as:
 * LogPartidas.txt is the file where the log of every game is saved.
 * LogPersonajes.txt is the file where the log of every game is saved.
+* LogSystem.txt is the file where the logs are stored in a way that can be then opened to be read inside the program.
+* LogDices.txt is the file where the log values of the dice maximum and minimum values are stored for the program to read.
 
 Release may include:
 * The .exe file, necessary to boot the program as a game. (*May launch errors and is far from perfect. Please read [Known Issues](https://github.com/VanimacionYT/Hero_Quest/blob/main/README.md#known-issues))
