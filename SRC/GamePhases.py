@@ -8,7 +8,7 @@ from SRC.Control.Global import GlobalState
 
 def Title():
     Dice.DiceInitiator(Dice)
-    print("----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------V2.8.0\nPress 'ENTER' to start!")
+    print(f"----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------------\tV{GlobalState.Version}\nPress 'ENTER' to start!")
     input()
     clear_output()
     GlobalState.GlobalGame = CurrentState.MENU

@@ -11,6 +11,9 @@ __[Changelog 2.9.0]__ 26/10/2023
     -New storing and managing method for minimum and maximum dice values.
     -Option to modify dice values in game.
 
+-The following is changed:
+    -Changed menu formating, as well as the method to show the version using SRC/Control/Global.py
+
 __[Changelog 2.8.0]__ 10/10/2023
 -The following functions are added:
     -Full change to English.

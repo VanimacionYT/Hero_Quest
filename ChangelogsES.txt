@@ -11,6 +11,9 @@ __[Changelog 2.9.0]__ 26/10/2023
     -Nuevo metodo para almacenar y gestionar los valores minimos y maximos de los dados.
     -Opcion para modificar los valores de los dados in game.
 
+-Lo siguiente se ha cambiado:
+    -Se cambia el formato de muestra del menu principal asi como la manera de mostrar la version usando SRC/Control/Global.py
+
 __[Changelog 2.8.0]__ 10/10/2023
 -Se añaden las siguientes funciones:
     -Codigo cambaido al ingles.
