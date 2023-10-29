@@ -24,22 +24,18 @@ class Dice():
             self.__DIDefenseDiceMaxFaces = int(DiceIndividualSettings[3].split("-")[1])
 
     def GlobalDice(self):
-        #DiceFaces = 6
         Dice = (random.randint(self.__DIGlobalDiceMinFaces, self.__DIGlobalDiceMaxFaces))
         return Dice
     
     def DiceHealth(self):
-        #DiceFaces = 15
         Dice = (random.randint(self.__DIHealthDiceMinFaces, self.__DIHealthDiceMaxFaces))
         return Dice
     
     def DiceAttack(self):
-        #DiceFaces = 10
         Dice = (random.randint(self.__DIAttackDiceMinFaces, self.__DIAttackDiceMaxFaces))
         return Dice
     
     def DiceDefense(self):
-        #DiceFaces = 10
         Dice = (random.randint(self.__DIDefenseDiceMinFaces, self.__DIDefenseDiceMaxFaces))
         return Dice
     
