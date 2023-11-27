@@ -17,7 +17,7 @@ def Title():
 def Menu():
     menu = True
     while menu == True:
-        print("<---<-MAIN MENU->--->\n\nPlay HQ: 1\t|\tCheck Logs: 2\t|\tDelete Logs: 3\t\t|\tSet Random Values: 4\t|\tExit: 5\n")
+        print("<---<-MAIN MENU->--->\n\n\t- Play HQ: \t\t1\n\t- Check Logs: \t\t2\n\t- Delete Logs: \t\t3\n\t- Set Dice Values: \t4\n\t- Reset Dice Values: \t5\n\t- Exit: \t\t6\n")
         Selection = input()
         if Selection == "1":
             menu = False
