@@ -18,7 +18,7 @@ class Character:
         return f"Player {self.name}:\n Health  > {self.__health} pt\n Attack  > {self.__attack} pt\n Defense > {self.__defense} pt"
     
     def logInfo(self):
-        return f"\n- Health    > {self.__health} pt\n- Atack  > {self.__attack} pt\n- Defense > {self.__defense} pt"
+        return f"\n- Health    > {self.__health} pt\n- Atack  > \t{self.__attack} pt\n- Defense > \t{self.__defense} pt"
     
     def logSys(self):
         return f"{self.__health}, {self.__attack}, {self.__defense}"

@@ -8,10 +8,10 @@ def CheckLogs():
         clear_output()
         lines = len(ArchivoLogSys.readlines())
         ArchivoLogSys.seek(0)
-    for x in range(lines):
-        Linea = ArchivoLogSys.readline()
-        Linea = Linea.split(", ")
-        print(f"\nGame {x + 1} Date  >>> {Linea[9]}\nPlayer {Linea[10]} {Linea[0]}:\n\tHealth  >> {Linea[1]}\n\tAttack  >> {Linea[2]}\n\tDefense >> {Linea[3]}\nPlayer {Linea[11]} {Linea[4]}:\n\tHealth  >> {Linea[5]}\n\tAttack  >> {Linea[6]}\n\tDefense >> {Linea[7]}\nWinner: {Linea[8]}\n--------------------------------------------------")
+        for x in range(lines):
+            Linea = ArchivoLogSys.readline()
+            Linea = Linea.split(", ")
+            print(f"\nGame {x + 1} Date  >>> {Linea[9]}\nPlayer {Linea[10]} {Linea[0]}:\n\tHealth  >> {Linea[1]}\n\tAttack  >> {Linea[2]}\n\tDefense >> {Linea[3]}\nPlayer {Linea[11]} {Linea[4]}:\n\tHealth  >> {Linea[5]}\n\tAttack  >> {Linea[6]}\n\tDefense >> {Linea[7]}\nWinner: {Linea[8]}\n--------------------------------------------------")
 
 
 def RemoveLogs():
