@@ -18,29 +18,37 @@ def Menu():
     menu = True
     while menu == True:
         print("<---<-MAIN MENU->--->\n\n\t- Play HQ: \t\t1\n\t- Check Logs: \t\t2\n\t- Delete Logs: \t\t3\n\t- Set Dice Values: \t4\n\t- Reset Dice Values: \t5\n\t- Exit: \t\t6\n")
-        Selection = input()
-        if Selection == "1":
-            menu = False
-            GlobalState.GlobalGame = CurrentState.GAME
-        elif Selection == "2":
-            CheckLogs()
-        elif Selection == "3":
-            clear_output()
-            print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
-            Confirmation = input()                
-            if Confirmation == "1":
-                RemoveLogs()
-            elif Confirmation == "2":
+        try:
+            Selection = input()
+            if Selection == "1":
+                menu = False
+                GlobalState.GlobalGame = CurrentState.GAME
+            elif Selection == "2":
+                CheckLogs()
+            elif Selection == "3":
                 clear_output()
-                menu = True
-        elif Selection == "4":
-            Dice.SetDices()
+                print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
+                Confirmation = input()                
+                if Confirmation == "1":
+                    RemoveLogs()
+                elif Confirmation == "2":
+                    clear_output()
+                    menu = True
+            elif Selection == "4":
+                Dice.SetDices()
 
-        elif Selection == "5":
-            Dice.ResetDices()
+            elif Selection == "5":
+                Dice.ResetDices()
 
-        elif Selection == "6":
-            quit()
+            elif Selection == "6":
+                quit()
+        except TypeError:
+            menu = False
+            time.sleep(1)
+            print("Esa no es una opción válida!\tElige una opión válida!")
+            time.sleep(1)
+            clear_output()
+            menu = True
 
 def Game():
     print("What player stats selection mode do you want?\n\nRandom: 1\t|\tManual:2\n")

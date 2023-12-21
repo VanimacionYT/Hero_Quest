@@ -10,4 +10,4 @@ while True:
     elif GlobalState.GlobalGame == CurrentState.GAME:
         Game()
     elif GlobalState.GlobalGame == CurrentState.END:
-        End()
+        End()   

@@ -45,7 +45,10 @@ class Dice():
         return Dice
     
     def SetDices():
-        pass
+        clear_output()
+        open('Log/LogDices.txt', 'w').close
+        with open('Log/LogDices.txt', 'w') as DiceLog:
+            DiceLog.write("1-6.3-15.1-10.1-10")
     
     def ResetDices():
         clear_output()
