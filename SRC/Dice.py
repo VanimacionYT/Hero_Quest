@@ -77,8 +77,8 @@ class Dice():
             print("Valor Incorrecto!")
             Dice.SetDices()
         with open('Log/LogDices.txt', 'w') as DiceLog:
-            DiceLog.write(f"{MinGlobalSet}-{MaxGlobalSet}.{MinHealthSet}-{MaxHealthSet}.{MinAttackSet}-{MaxAttackSet}.{MinDeffenseSet}-{MaxDeffenseSet}")
-            Dice.DiceInitiator(Dice)
+            DiceLog.write(f"{MinGlobalSet}-{MaxGlobalSet}.{MinHealthSet}-{MaxHealthSet}.{MinAttackSet}-{MaxAttackSet}.{MinDeffenseSet}-{MaxDeffenseSet}")    
+        
     
     def ResetDices():
         clear_output()
