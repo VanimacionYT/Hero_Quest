@@ -56,7 +56,7 @@ def Menu():
                 menu = True
         else:
             time.sleep(1)
-            print("Esa no es una opción válida!\tElige una opión válida!")
+            print("Wrong Option!\nChoose a valid option!")
             time.sleep(1)
             clear_output()
             menu = True
