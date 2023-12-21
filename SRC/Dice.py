@@ -47,8 +47,38 @@ class Dice():
     def SetDices():
         clear_output()
         open('Log/LogDices.txt', 'w').close
+        try:
+            MinGlobalSet = int(input("Número Mínimo del dado de juego (por defecto 1)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MaxGlobalSet = int(input("Número Máximo del dado de juego (por defecto 6)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MinHealthSet = int(input("Puntos Mínimos de Vida (por defecto 3)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MaxHealthSet = int(input("Puntos Máximos de Vida (por defecto 15)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MinAttackSet = int(input("Puntos Mínimos de Ataque (por defecto 1)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MaxAttackSet = int(input("Puntos Máximos de Ataque (por defecto 10)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MinDeffenseSet = int(input("Puntos Mínimos de Defensa (por defecto 1)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+            MaxDeffenseSet = int(input("Puntos Máximos de Defensa (por defecto 10)\n"))
+            if type(MinGlobalSet) != int:
+                raise ValueError()
+        except ValueError:
+            clear_output()
+            print("Valor Incorrecto!")
+            Dice.SetDices()
         with open('Log/LogDices.txt', 'w') as DiceLog:
-            DiceLog.write("1-6.3-15.1-10.1-10")
+            DiceLog.write(f"{MinGlobalSet}-{MaxGlobalSet}.{MinHealthSet}-{MaxHealthSet}.{MinAttackSet}-{MaxAttackSet}.{MinDeffenseSet}-{MaxDeffenseSet}")
+            Dice.DiceInitiator(Dice)
     
     def ResetDices():
         clear_output()
