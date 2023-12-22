@@ -1,10 +1,21 @@
-[Este proyecto está desarrollado en el lenguaje "Python" usando el IDE de "Jupyter Notebook" y “Visual Studio Code”]
+[Este proyecto está desarrollado en el lenguaje "Python" usando el IDE de “Visual Studio Code”]
 
 Hero Quest es un juego desarrollado a partir de una tarea de mi academia de python el cual he decidido mantener actualizado, añadiendo todas las funcionalidades útiles que vaya aprendiendo.
 
 Este juego no es más que un mero proyecto académico.
 
 En este documento de texto redactaré los cambios que se reporten en el juego.
+
+__[Changelog 2.9.1]__ 22/12/2023
+-Se añaden las siguientes funciones:
+    -Nueva UI de menú.
+    -Se limpia el codigo original.
+    -Se añade un simple sistema de errores al main menu.
+    -Se agregó una función para establecer los valores predeterminados de los dados y también para establecer los máximos y mínimos de los valores aleatorios.
+
+-Los siguientes errores se han corregido:
+    -Fix log error en el codigo debido a una mala indexación (commit a1c6050)
+    -Fix dice print error que causaba la creación de un archivo de manera no intencionada (commit 2e18ee5)
 
 __[Changelog 2.9.0]__ 26/10/2023
 -Se añaden las siguientes funciones:

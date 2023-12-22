@@ -1,10 +1,21 @@
-[This project is developed in the "Python" language using the "Jupyter Notebook" and “Visual Studio Code” IDE]
+[This project is developed in the "Python" language using the “Visual Studio Code” IDE]
 
 Hero Quest is a game developed from an assignment at my Python academy which I have decided to keep updated, adding all the useful functionalities that I learn.
 
 This game is nothing more than a mere academic project.
 
 In this text document I will write the changes that are reported in the game.
+
+__[Changelog 2.9.1]__ 22/12/2023
+-The following functions are added:
+    -New menu UI.
+    -Cleaned original code.
+    -Added simple error system to the main menu.
+    -Added a function to set the default dice values as well to set the maximums and minimums to the random values.
+
+-The following fixes are commited:
+    -Fixed log error code due to bad indexation (commit a1c6050)
+    -Fixed dice print error that caused a new file to be created (commit 2e18ee5)
 
 __[Changelog 2.9.0]__ 26/10/2023
 -The following functions are added:
