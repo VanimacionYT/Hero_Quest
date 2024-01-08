@@ -1,4 +1,5 @@
 import time
+import os
 from IPython.display import clear_output
 from SRC.Dice import Dice
 from SRC.Players import Player
@@ -10,7 +11,7 @@ def Title():
     Dice.DiceInitiator(Dice)
     print(f"----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------------\tV{GlobalState.Version}\nPress 'ENTER' to start!")
     input()
-    clear_output()
+    os.system('cls' if os.name == 'nt' else 'clear')
     GlobalState.GlobalGame = CurrentState.MENU
     return
 
@@ -25,46 +26,46 @@ def Menu():
         elif Selection == "2":
             CheckLogs()
         elif Selection == "3":
-            clear_output()
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
             Confirmation = input()                
             if Confirmation == "1":
                 RemoveLogs()
             elif Confirmation == "2":
-                clear_output()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 menu = True
         elif Selection == "4":
             Dice.SetDices()
             Dice.DiceInitiator(Dice)
         elif Selection == "5":
-            clear_output()
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("¿Are you sure you want to reset the dices?\nYes, I'm sure: 1\t|\tNo, I don't want to reset them: 2")
             Confirmation = input()                
             if Confirmation == "1":
                 Dice.ResetDices()
             elif Confirmation == "2":
-                clear_output()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 menu = True
         elif Selection == "6":
-            clear_output()
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("¿Are you sure you want to exit?\nYes: 1\t|\tNo: 2")
             Confirmation = input()                
             if Confirmation == "1":
                 quit()
             elif Confirmation == "2":
-                clear_output()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 menu = True
         else:
             time.sleep(1)
             print("Wrong Option!\nChoose a valid option!")
             time.sleep(1)
-            clear_output()
+            os.system('cls' if os.name == 'nt' else 'clear')
             menu = True
 
 def Game():
     print("What player stats selection mode do you want?\n\nRandom: 1\t|\tManual:2\n")
     ParameterSelection = input()
-    clear_output()
+    os.system('cls' if os.name == 'nt' else 'clear')
     if ParameterSelection == "1":
         print("\tLet's Create PLAYER 1") 
         print("PLAYER 1 Name: ")
@@ -104,7 +105,7 @@ def Game():
         Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
     else:
         print("¡ERROR!\nSelect a valid option")
-        clear_output()
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     if ParameterSelection == "1":
         print("Parameter Selection: Random")

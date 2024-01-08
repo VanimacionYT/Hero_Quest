@@ -1,4 +1,5 @@
 import random
+import os
 from IPython.display import clear_output
 
 class Dice():
@@ -45,7 +46,7 @@ class Dice():
         return Dice
     
     def SetDices():
-        clear_output()
+        os.system('cls' if os.name == 'nt' else 'clear')
         open('Log/LogDices.txt', 'w').close
         try:
             MinGlobalSet = int(input("Play Dice Min Number (Default 1)\n"))
@@ -73,7 +74,7 @@ class Dice():
             if type(MinGlobalSet) != int:
                 raise ValueError()
         except ValueError:
-            clear_output()
+            os.system('cls' if os.name == 'nt' else 'clear')
             print("Wrong Value!")
             Dice.SetDices()
         with open('Log/LogDices.txt', 'w') as DiceLog:
@@ -81,7 +82,7 @@ class Dice():
         
     
     def ResetDices():
-        clear_output()
+        os.system('cls' if os.name == 'nt' else 'clear')
         open('Log/LogDices.txt', 'w').close
         with open('Log/LogDices.txt', 'w') as DiceLog:
             DiceLog.write("1-6.3-15.1-10.1-10")

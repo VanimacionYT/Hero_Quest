@@ -1,11 +1,12 @@
 import locale
+import os
 from IPython.display import clear_output
 from datetime import datetime
 
 def CheckLogs():
-    clear_output()
+    os.system('cls' if os.name == 'nt' else 'clear')
     with open('Log/LogSystem.txt', 'r') as ArchivoLogSys:
-        clear_output()
+        os.system('cls' if os.name == 'nt' else 'clear')
         lines = len(ArchivoLogSys.readlines())
         ArchivoLogSys.seek(0)
         for x in range(lines):
@@ -15,7 +16,7 @@ def CheckLogs():
 
 
 def RemoveLogs():
-    clear_output()
+    os.system('cls' if os.name == 'nt' else 'clear')
     locale.setlocale(locale.LC_ALL, 'C')
     Date = datetime.now()
     LogRefreshDate =  Date.strftime("[-- Refresh Created At: %d/%m/%Y - %H:%M:%S --]")    
