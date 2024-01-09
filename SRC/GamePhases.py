@@ -37,6 +37,7 @@ def Menu():
         elif Selection == "4":
             Dice.SetDices()
             Dice.DiceInitiator(Dice)
+            menu = True
         elif Selection == "5":
             os.system('cls' if os.name == 'nt' else 'clear')
             print("¿Are you sure you want to reset the dices?\nYes, I'm sure: 1\t|\tNo, I don't want to reset them: 2")
@@ -58,7 +59,7 @@ def Menu():
         else:
             time.sleep(1)
             print("Wrong Option!\nChoose a valid option!")
-            time.sleep(1)
+            time.sleep(2)
             os.system('cls' if os.name == 'nt' else 'clear')
             menu = True
 
@@ -67,42 +68,65 @@ def Game():
     ParameterSelection = input()
     os.system('cls' if os.name == 'nt' else 'clear')
     if ParameterSelection == "1":
-        print("\tLet's Create PLAYER 1") 
-        print("PLAYER 1 Name: ")
-        Player1Name = input()
-        Player1Health = Dice.DiceHealth(Dice)
-        Player1Attack = Dice.DiceAttack(Dice)
-        Player1Defense = Dice.DiceDefense(Dice)
-        Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense) 
-        print("\tLet's Create PLAYER 2") 
-        print("PLAYER 2 Name: ")
-        Player2Name = input()
-        Player2Health = Dice.DiceHealth(Dice)
-        Player2Attack = Dice.DiceAttack(Dice)
-        Player2Defense = Dice.DiceDefense(Dice)
-        Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
+        try:
+            print("\tLet's Create PLAYER 1") 
+            print("PLAYER 1 Name: ")
+            Player1Name = input()
+            Player1Health = Dice.DiceHealth(Dice)
+            Player1Attack = Dice.DiceAttack(Dice)
+            Player1Defense = Dice.DiceDefense(Dice)
+            print("\tLet's Create PLAYER 2") 
+            print("PLAYER 2 Name: ")
+            Player2Name = input()
+            Player2Health = Dice.DiceHealth(Dice)
+            Player2Attack = Dice.DiceAttack(Dice)
+            Player2Defense = Dice.DiceDefense(Dice)
+        except:
+            time.sleep(1)
+            print("¡Wrong Value!")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Input a correct value")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+        finally:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense) 
+            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
+            os.system('cls' if os.name == 'nt' else 'clear')
 
-    elif ParameterSelection == "2":    
-        print("\tLet's Create PLAYER 1") 
-        print("PLAYER 1 Name: ")
-        Player1Name = input()
-        print("PLAYER 1 Health: ")
-        Player1Health = int(input())
-        print("PLAYER 1 Attack: ")
-        Player1Attack = int(input())
-        print("PLAYER 1 Defense: ")
-        Player1Defense = int(input())
-        Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense)
-        print("\tLet's Create PLAYER 2") 
-        print("PLAYER 2 Name: ")
-        Player2Name = input()
-        print("PLAYER 2 Health: ")
-        Player2Health = int(input())
-        print("PLAYER 2 Attack: ")
-        Player2Attack = int(input())
-        print("PLAYER 2 Defense: ")
-        Player2Defense = int(input())
-        Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
+    elif ParameterSelection == "2":
+        try:    
+            print("\tLet's Create PLAYER 1") 
+            print("PLAYER 1 Name: ")
+            Player1Name = input()
+            print("PLAYER 1 Health: ")
+            Player1Health = int(input())
+            print("PLAYER 1 Attack: ")
+            Player1Attack = int(input())
+            print("PLAYER 1 Defense: ")
+            Player1Defense = int(input())
+            print("\tLet's Create PLAYER 2") 
+            print("PLAYER 2 Name: ")
+            Player2Name = input()
+            print("PLAYER 2 Health: ")
+            Player2Health = int(input())
+            print("PLAYER 2 Attack: ")
+            Player2Attack = int(input())
+            print("PLAYER 2 Defense: ")
+            Player2Defense = int(input())
+        except:
+            time.sleep(1)
+            print("¡Wrong Value!")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Input a correct value")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+        finally:
+            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense)
+            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
+            os.system('cls' if os.name == 'nt' else 'clear')
     else:
         print("¡ERROR!\nSelect a valid option")
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -118,8 +142,19 @@ def Game():
     LogPlayers(Player1.name, Player1.logInfo(), Player2.name, Player2.logInfo())
 
     print("\nHow many game turns do you want to play?: ")
-    GameTurns = int(input())
-        
+    try:
+        GameTurns = int(input())
+    except:
+        time.sleep(1)
+        print("¡Wrong Value!")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Input a correct value")
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+    finally:
+        if GameTurns == 0:
+            GameTurns = 2147483647
     if Dice.FirstPlayerTurn() == 1:
         Attacker = "Player1"
         Defensor = "Player2"
@@ -179,3 +214,11 @@ def End():
             break
         if GameOver== "3":
             quit()
+        else:
+            time.sleep(1)
+            print("¡Wrong Value!")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Input a correct value")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
