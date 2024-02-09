@@ -50,7 +50,7 @@ Release may include:
 ## Known Issues
 
 - Windows detects the Hero-Quest.exe at (Hero-Quest.zip) as a **threat**.
-    -Fix: This is a common error on the python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send Microsoft a copy to flag as *false positive*, but that is under consideration. [Documentation abut the errors](https://stackoverflow.com/questions/54730851/windows-defender-detecting-python-exe-as-trojan) 
+    -Fix: This is a common error on the python community as I understand. **File is not a thread**, it is detected as if it was. Currently working to send Microsoft a copy to flag as *false positive*, but that is under consideration. [Documentation about the errors](https://stackoverflow.com/questions/54730851/windows-defender-detecting-python-exe-as-trojan) 
 
 If you find any issue or bug, don't hesitate to try and tell me or even fix it!
 
