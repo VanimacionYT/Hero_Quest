@@ -72,7 +72,7 @@ def Game():
     os.system('cls' if os.name == 'nt' else 'clear')
     if ParameterSelection == "1":
         retry = 3
-        for i in range(i):
+        for i in range(retry):
             try:
                 if i != 0:
                     print(f"Retry Number {i}/3\n")
@@ -94,6 +94,7 @@ def Game():
                 Player2Health = Dice.DiceHealth(Dice)
                 Player2Attack = Dice.DiceAttack(Dice)
                 Player2Defense = Dice.DiceDefense(Dice)
+                break
 
             except SameNameError:
                 time.sleep(1)
@@ -169,6 +170,7 @@ def Game():
                 Player2Attack = int(input())
                 print("PLAYER 2 Defense: ")
                 Player2Defense = int(input())
+                break
 
             except SameNameError:
                 time.sleep(1)
@@ -238,20 +240,20 @@ def Game():
     for i in range(retry):
         if i != 0:
             print(f"Retry Number {i}/3\n")
-    print("\nHow many game turns do you want to play?: ")
-    try:
-        GameTurns = int(input())
-    except:
-        time.sleep(1)
-        print("¡Wrong Value!")
-        time.sleep(1)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("Input a correct value")
-        time.sleep(1)
-        os.system('cls' if os.name == 'nt' else 'clear')
-    else:
-        if GameTurns == 0:
-            GameTurns = 2147483647
+        print("\nHow many game turns do you want to play?: ")
+        try:
+            GameTurns = int(input())
+            if GameTurns == 0:
+                GameTurns = 21474836473
+            break
+        except:
+            time.sleep(1)
+            print("¡Wrong Value!")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Input a correct value")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
 
     if Dice.FirstPlayerTurn() == 1:
         Attacker = "Player1"
@@ -298,7 +300,7 @@ def Game():
     Player2Result = (f"\n\tPlayer2:   {Player2.name} stays at {Player2.health} health pt.")
     GameResult = (Player1Result + Player2Result)
     print(GameResult)
-    LogGames(Player1.logInfo(), Player1.name, Player2.logInfo(), Player2.name, ParameterSelection, PlayedTurn, GameTurns, GameResult, Player1.PlayerID, Player2.PlayerID)
+    LogGames(Player1.logInfo(), Player1.name, Player2.logInfo(), Player2.name, ParameterSelection, GameTurns, PlayedTurn , GameResult, Player1.PlayerID, Player2.PlayerID)
     LogSystem(Player1.name, Player1LogSys, Player2.name, Player2LogSys, Result, Player1.PlayerID, Player2.PlayerID)
     GlobalState.GlobalGame = CurrentState.END
 

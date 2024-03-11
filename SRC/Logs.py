@@ -42,6 +42,8 @@ def LogGames(Player1Stats,Player1Name, Player2Stats, Player2Name, ParameterSelec
         ParameterSelection = "Random"
     elif ParameterSelection == "2":
         ParameterSelection = "Manual"
+    if SelectedTurns >= 21474836473:
+        SelectedTurns = "Infinite"
     locale.setlocale(locale.LC_ALL, 'C')
     dt = datetime.now()
     LogGamesDate = (dt.strftime("[-- Game Log Created At: %d/%m/%Y - %H:%M:%S --]"))    
