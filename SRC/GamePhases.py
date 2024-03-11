@@ -234,6 +234,10 @@ def Game():
     Player2LogSys = Player2.logSys()
     LogPlayers(Player1.name, Player1.logInfo(), Player2.name, Player2.logInfo())
 
+    retry = 3
+    for i in range(retry):
+        if i != 0:
+            print(f"Retry Number {i}/3\n")
     print("\nHow many game turns do you want to play?: ")
     try:
         GameTurns = int(input())
@@ -245,6 +249,9 @@ def Game():
         print("Input a correct value")
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
+    else:
+        if GameTurns == 0:
+            GameTurns = 2147483647
 
     if Dice.FirstPlayerTurn() == 1:
         Attacker = "Player1"
