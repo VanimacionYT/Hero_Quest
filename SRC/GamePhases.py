@@ -6,8 +6,10 @@ from SRC.Players import Player
 from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
 from SRC.Control.Current import CurrentState
 from SRC.Control.Global import GlobalState
+from SRC.Control.Exceptions import SameNameError, BadNameError
 
 def Title():
+    os.system('cls' if os.name == 'nt' else 'clear')
     Dice.DiceInitiator(Dice)
     print(f"----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------------\tV{GlobalState.Version}\nPress 'ENTER' to start!")
     input()
@@ -16,6 +18,7 @@ def Title():
     return
 
 def Menu():
+    os.system('cls' if os.name == 'nt' else 'clear')
     menu = True
     while menu == True:
         print("<---<-MAIN MENU->--->\n\n\t- Play HQ: \t\t1\n\t- Check Logs: \t\t2\n\t- Delete Logs: \t\t3\n\t- Set Dice Values: \t4\n\t- Reset Dice Values: \t5\n\t- Exit: \t\t6\n")
@@ -68,69 +71,159 @@ def Game():
     ParameterSelection = input()
     os.system('cls' if os.name == 'nt' else 'clear')
     if ParameterSelection == "1":
-        try:
-            print("\tLet's Create PLAYER 1") 
-            print("PLAYER 1 Name: ")
-            Player1Name = input()
-            Player1Health = Dice.DiceHealth(Dice)
-            Player1Attack = Dice.DiceAttack(Dice)
-            Player1Defense = Dice.DiceDefense(Dice)
-            print("\tLet's Create PLAYER 2") 
-            print("PLAYER 2 Name: ")
-            Player2Name = input()
-            Player2Health = Dice.DiceHealth(Dice)
-            Player2Attack = Dice.DiceAttack(Dice)
-            Player2Defense = Dice.DiceDefense(Dice)
-        except:
-            time.sleep(1)
-            print("¡Wrong Value!")
-            time.sleep(1)
-            os.system('cls' if os.name == 'nt' else 'clear')
-            print("Input a correct value")
-            time.sleep(1)
-            os.system('cls' if os.name == 'nt' else 'clear')
-        finally:
-            os.system('cls' if os.name == 'nt' else 'clear')
-            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense) 
-            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
-            os.system('cls' if os.name == 'nt' else 'clear')
+        retry = 3
+        for i in range(i):
+            try:
+                if i != 0:
+                    print(f"Retry Number {i}/3\n")
+                print("\tLet's Create PLAYER 1") 
+                print("PLAYER 1 Name: ")
+                Player1Name = input()
+                if len(Player1Name) < 3:
+                    raise BadNameError()
+                Player1Health = Dice.DiceHealth(Dice)
+                Player1Attack = Dice.DiceAttack(Dice)
+                Player1Defense = Dice.DiceDefense(Dice)
+                print("\tLet's Create PLAYER 2") 
+                print("PLAYER 2 Name: ")
+                Player2Name = input()
+                if len(Player2Name) < 3:
+                    raise BadNameError()
+                if Player2Name == Player1Name:
+                    raise SameNameError()
+                Player2Health = Dice.DiceHealth(Dice)
+                Player2Attack = Dice.DiceAttack(Dice)
+                Player2Defense = Dice.DiceDefense(Dice)
+
+            except SameNameError:
+                time.sleep(1)
+                print("¡Name Is Same as Player 1!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a different name")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
+            
+            except BadNameError:
+                time.sleep(1)
+                print("¡Name Is Too Short!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a 3 character name")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
+            except:
+                time.sleep(1)
+                print("¡Wrong Value!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a correct value")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
 
     elif ParameterSelection == "2":
-        try:    
-            print("\tLet's Create PLAYER 1") 
-            print("PLAYER 1 Name: ")
-            Player1Name = input()
-            print("PLAYER 1 Health: ")
-            Player1Health = int(input())
-            print("PLAYER 1 Attack: ")
-            Player1Attack = int(input())
-            print("PLAYER 1 Defense: ")
-            Player1Defense = int(input())
-            print("\tLet's Create PLAYER 2") 
-            print("PLAYER 2 Name: ")
-            Player2Name = input()
-            print("PLAYER 2 Health: ")
-            Player2Health = int(input())
-            print("PLAYER 2 Attack: ")
-            Player2Attack = int(input())
-            print("PLAYER 2 Defense: ")
-            Player2Defense = int(input())
-        except:
-            time.sleep(1)
-            print("¡Wrong Value!")
-            time.sleep(1)
-            os.system('cls' if os.name == 'nt' else 'clear')
-            print("Input a correct value")
-            time.sleep(1)
-            os.system('cls' if os.name == 'nt' else 'clear')
-        finally:
-            Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense)
-            Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
-            os.system('cls' if os.name == 'nt' else 'clear')
+        retry = 3
+        for i in range(retry):
+            if i != 0:
+                print(f"Retry Number {i}/3\n")
+            try:    
+                print("\tLet's Create PLAYER 1") 
+                print("PLAYER 1 Name: ")
+                Player1Name = input()
+                if len(Player1Name) < 3:
+                    raise BadNameError()
+                print("PLAYER 1 Health: ")
+                Player1Health = int(input())
+                print("PLAYER 1 Attack: ")
+                Player1Attack = int(input())
+                print("PLAYER 1 Defense: ")
+                Player1Defense = int(input())
+                print("\tLet's Create PLAYER 2") 
+                print("PLAYER 2 Name: ")
+                Player2Name = input()
+                if len(Player1Name) < 3:
+                    raise BadNameError()
+                if Player2Name == Player1Name:
+                    raise SameNameError()
+                print("PLAYER 2 Health: ")
+                Player2Health = int(input())
+                print("PLAYER 2 Attack: ")
+                Player2Attack = int(input())
+                print("PLAYER 2 Defense: ")
+                Player2Defense = int(input())
+
+            except SameNameError:
+                time.sleep(1)
+                print("¡Name Is Same as Player 1!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a different name")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
+            
+            except BadNameError:
+                time.sleep(1)
+                print("¡Name Is Too Short!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a 3 character name")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
+
+            except:
+                time.sleep(1)
+                print("¡Wrong Value!")
+                time.sleep(1)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print("Input a correct value")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                if i < retry:
+                    continue
+                else:
+                    print("¡Error Limit Exceded!\n\nEnding Program")
+                    time.sleep(2)
+                    raise
+
     else:
         print("¡ERROR!\nSelect a valid option")
         os.system('cls' if os.name == 'nt' else 'clear')
 
+    os.system('cls' if os.name == 'nt' else 'clear')
+    Player1 = Player("1", Player1Name, Player1Health, Player1Attack, Player1Defense) 
+    Player2 = Player("2", Player2Name, Player2Health, Player2Attack, Player2Defense)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
     if ParameterSelection == "1":
         print("Parameter Selection: Random")
     elif ParameterSelection == "2":
@@ -152,16 +245,16 @@ def Game():
         print("Input a correct value")
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
-    finally:
-        if GameTurns == 0:
-            GameTurns = 2147483647
+
     if Dice.FirstPlayerTurn() == 1:
         Attacker = "Player1"
         Defensor = "Player2"
     else:
         Attacker = "Player2"
         Defensor = "Player1"
-
+    
+    if GameTurns == 0:
+        GameTurns = 2147483647
     PlayedTurn = 0
     for x in range(GameTurns):
         PlayedTurn += 1
