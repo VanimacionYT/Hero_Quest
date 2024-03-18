@@ -39,8 +39,8 @@ For any issues or sugestions you can contact me via discord: *(heyne_cositas / V
 * HeroQuest.py is the main source for the .exe version. and the manager of all the files in SRC/. If you want to try the game out inside a code editor you must run this file in order for everythn to work.
 
 Also the Log folder is the one where the logs are stores, such as:
-* LogPartidas.txt is the file where the log of every game is saved.
-* LogPersonajes.txt is the file where the log of every game is saved.
+* LogGames.txt is the file where the log of every game is saved.
+* LogPlayers.txt is the file where the log of every player is saved.
 * LogSystem.txt is the file where the logs are stored in a way that can be then opened to be read inside the program.
 * LogDices.txt is the file where the log values of the dice maximum and minimum values are stored for the program to read.
 
