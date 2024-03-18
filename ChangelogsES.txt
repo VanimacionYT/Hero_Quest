@@ -6,9 +6,14 @@ Este juego no es más que un mero proyecto académico.
 
 En este documento de texto redactaré los cambios que se reporten en el juego.
 
-__[Changelog 2.9.2]__ 08/01/2024
+__[Changelog 2.9.2]__ 18/03/2024
 -Se modifican las siguientes funciones:
     -Nuevo modo de limpieza de terminal efectivo usando "os".
+    -Cambiado el metodo de las fases de juego para una vista mas clara de lo que sucede.
+    -Codigo limpiado y explicado.
+    -Arregladas faltas de ortografía.
+    -Añadido mas mensajes de error.
+    -Posible jugar turnos infinitos colocando "0".
 
 __[Changelog 2.9.1]__ 22/12/2023
 -Se añaden las siguientes funciones:

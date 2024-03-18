@@ -6,6 +6,15 @@ This game is nothing more than a mere academic project.
 
 In this text document I will write the changes that are reported in the game.
 
+__[Changelog 2.9.2]__ 18/03/2024
+-Se modifican las siguientes funciones:
+    -New terminal cleaning method using .os.
+    -New GamePhases method to better understand the order.
+    -Cleaned and commented code.
+    -Fixed misspelling errors
+    -New error messages added.
+    -Now it is possible to play inifinite game turns by writing "0".
+
 __[Changelog 2.9.1]__ 22/12/2023
 -The following functions are added:
     -New menu UI.
