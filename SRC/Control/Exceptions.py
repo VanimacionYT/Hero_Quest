@@ -3,5 +3,5 @@ class SameNameError(Exception):
     pass
 
 class BadNameError(Exception):
-    #Raised when a nae is too short.
+    #Raised when a name is too short.
     pass
