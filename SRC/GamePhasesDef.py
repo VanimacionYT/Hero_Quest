@@ -1,6 +1,5 @@
 import time
 import os
-from IPython.display import clear_output
 from SRC.Dice import Dice
 from SRC.Players import Player
 from SRC.Logs import LogPlayers, LogGames, RemoveLogs, CheckLogs, LogSystem
@@ -15,55 +14,90 @@ from SRC.Control.Exceptions import SameNameError, BadNameError
 ###############################################################
 
 
+#      Title Functions     #
+
+# Title Function
+def TitleShow():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    Dice.DiceInitiator(Dice)
+    print(f"----------------------------\n--------[HERO QUEST]--------\n----------------------------\n----------------------------\tV{GlobalState.Version}\nPress 'ENTER' to start!")
+    input()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    GlobalState.GlobalGame = CurrentState.MENU
+    return
+
 #      Main Menu Functions     #
 
 # Main Menu Function
 def MainMenu():
-    print("<---<-MAIN MENU->--->\n\n\t- Play HQ: \t\t1\n\t- Check Logs: \t\t2\n\t- Delete Logs: \t\t3\n\t- Set Dice Values: \t4\n\t- Reset Dice Values: \t5\n\t- Exit: \t\t6\n")
-    Selection = input()
-    if Selection == "1":
-        menu = False
-        GlobalState.GlobalGame = CurrentState.GAME
-    elif Selection == "2":
-        CheckLogs()
-        input("Press 'Enter' to exit")
-    elif Selection == "3":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
-        Confirmation = input()                
-        if Confirmation == "1":
-            RemoveLogs()
-        elif Confirmation == "2":
+    os.system('cls' if os.name == 'nt' else 'clear')
+    menu = True
+    while menu == True:
+        print("<---<-MAIN MENU->--->\n\n\t- Play HQ: \t\t1\n\t- Check Logs: \t\t2\n\t- Delete Logs: \t\t3\n\t- Set Dice Values: \t4\n\t- Reset Dice Values: \t5\n\t- Exit: \t\t6\n")
+        Selection = input()
+
+        #Play Option
+        if Selection == "1":
+            menu = False
+            GlobalState.GlobalGame = CurrentState.GAME
+            
+        #Check Logs Option
+        elif Selection == "2":
+            CheckLogs()
+            input("Press 'Enter' to exit")
+        
+        #Delete Logs Option
+        elif Selection == "3":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("¿Are you sure you want to delete the logs?\nYes, I'm sure: 1\t|\tNo, I don't want to delete them: 2")
+            Confirmation = input()                
+            if Confirmation == "1":
+                RemoveLogs()
+            elif Confirmation == "2":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu = True
+            else:
+                time.sleep(1)
+                print("Wrong Option!\nChoose a valid option!")
+                time.sleep(2)
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu = True
+        
+        #Set Dices Option
+        elif Selection == "4":
+            Dice.SetDices()
+            Dice.DiceInitiator(Dice)
+            menu = True
+        
+        #Reset Dices Option
+        elif Selection == "5":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("¿Are you sure you want to reset the dices?\nYes, I'm sure: 1\t|\tNo, I don't want to reset them: 2")
+            Confirmation = input()                
+            if Confirmation == "1":
+                Dice.ResetDices()
+            elif Confirmation == "2":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu = True
+
+        #Exit Option
+        elif Selection == "6":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("¿Are you sure you want to exit?\nYes: 1\t|\tNo: 2")
+            Confirmation = input()                
+            if Confirmation == "1":
+                quit()
+            elif Confirmation == "2":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                menu = True
+        
+        #Wrong Option        
+        else:
+            time.sleep(1)
+            print("Wrong Option!\nChoose a valid option!")
+            time.sleep(2)
             os.system('cls' if os.name == 'nt' else 'clear')
             menu = True
-    elif Selection == "4":
-        Dice.SetDices()
-        Dice.DiceInitiator(Dice)
-        menu = True
-    elif Selection == "5":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("¿Are you sure you want to reset the dices?\nYes, I'm sure: 1\t|\tNo, I don't want to reset them: 2")
-        Confirmation = input()                
-        if Confirmation == "1":
-            Dice.ResetDices()
-        elif Confirmation == "2":
-            os.system('cls' if os.name == 'nt' else 'clear')
-            menu = True
-    elif Selection == "6":
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print("¿Are you sure you want to exit?\nYes: 1\t|\tNo: 2")
-        Confirmation = input()                
-        if Confirmation == "1":
-            quit()
-        elif Confirmation == "2":
-            os.system('cls' if os.name == 'nt' else 'clear')
-            menu = True
-    else:
-        time.sleep(1)
-        print("Wrong Option!\nChoose a valid option!")
-        time.sleep(2)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        menu = True
 
 #        Game Functions        #
 
@@ -349,3 +383,27 @@ def GamePlay(Parameters, GameTurns):
     LogGames(Player1.logInfo(), Player1.name, Player2.logInfo(), Player2.name, ParameterSelection, GameTurns, PlayedTurn , GameResult, Player1.PlayerID, Player2.PlayerID)
     LogSystem(Player1.name, Player1LogSys, Player2.name, Player2LogSys, Result, Player1.PlayerID, Player2.PlayerID)
     GlobalState.GlobalGame = CurrentState.END
+
+#   End Functions   #
+    
+#End Function
+def EndShow():
+    print("\n-- Play Again: 1\t|\tReturn to Menu: 2\t|\tExit: 3 --\n")
+    GameOver = input()
+    while True:
+        if GameOver == "1":
+            GlobalState.GlobalGame = CurrentState.GAME
+            break
+        if GameOver == "2":
+            GlobalState.GlobalGame = CurrentState.MENU
+            break
+        if GameOver== "3":
+            quit()
+        else:
+            time.sleep(1)
+            print("¡Wrong Value!")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("Input a correct value")
+            time.sleep(1)
+            os.system('cls' if os.name == 'nt' else 'clear')

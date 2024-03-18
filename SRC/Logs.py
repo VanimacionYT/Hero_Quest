@@ -1,6 +1,5 @@
 import locale
 import os
-from IPython.display import clear_output
 from datetime import datetime
 
 def CheckLogs():
@@ -13,7 +12,6 @@ def CheckLogs():
             Linea = ArchivoLogSys.readline()
             Linea = Linea.split(", ")
             print(f"\nGame {x + 1} Date  >>> {Linea[9]}\nPlayer {Linea[10]} {Linea[0]}:\n\tHealth  >> {Linea[1]}\n\tAttack  >> {Linea[2]}\n\tDefense >> {Linea[3]}\nPlayer {Linea[11]} {Linea[4]}:\n\tHealth  >> {Linea[5]}\n\tAttack  >> {Linea[6]}\n\tDefense >> {Linea[7]}\nWinner: {Linea[8]}\n--------------------------------------------------")
-
 
 def RemoveLogs():
     os.system('cls' if os.name == 'nt' else 'clear')

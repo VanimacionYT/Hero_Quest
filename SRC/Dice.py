@@ -1,6 +1,5 @@
 import random
 import os
-from IPython.display import clear_output
 
 class Dice():
     __DIGlobalDiceMinFaces = 0
